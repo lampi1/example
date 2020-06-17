@@ -1,0 +1,293 @@
+// @font-face {
+//   font-family: 'Avenir';
+//   font-weight: normal;
+//   src: url('/fonts/avenir-regular.ttf')  format('ttf') /* Safari, Android, iOS */
+// }
+// @font-face {
+//   font-family: 'Avenir';
+//   font-weight: medium;
+//   src: url('/fonts/NeueMontreal-Medium.otf')  format('truetype') /* Safari, Android, iOS */
+// }
+// @font-face {
+//   font-family: 'Avenir';
+//   font-weight: lighter;
+//   src: url('/fonts/avenir-light.ttf')  format('ttf') /* Safari, Android, iOS */
+// }
+// @font-face {
+//   font-family: 'Avenir';
+//   font-weight: bold;
+//   src: url('/fonts/avenir-bold.ttf')  format('ttf') /* Safari, Android, iOS */
+// }
+
+
+@import "reset";
+@import "bootstrap/bootstrap";
+
+@import 'glide.core';
+@import 'glide.theme';
+@import 'forms';
+@import 'select2/core';
+@import '../views/front/components/header/header';
+// @import '../views/front/components/preview-project/preview-project';
+@import '../views/front/components/footer/footer';
+// @import '../views/front/components/mouse/mouse';
+
+
+button:focus {outline:0 !important;}
+:focus {outline:none !important;}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+//loop colori
+@each $color, $value in $colors {
+  .fc--#{$color} {
+    color:#{$value} !important;
+  }
+}
+
+@each $color, $value in $colors {
+  .bg--#{$color} {
+    background-color:#{$value};
+  }
+}
+
+//TEXT OUTLINES
+@each $color, $value in $colors {
+  .text-outline--#{$color} {
+      text-shadow: -1px -1px 0 #{$value}, 1px -1px 0 #{$value}, -1px 1px 0 #{$value}, 1px 1px 0 #{$value};
+  }
+}
+
+body > *{
+    // font-size: 31px;
+    // font-family: 'NeueMontreal', sans-serif;
+    font-family: 'Raleway', sans-serif !important;
+    // font-family: 'Source Sans Pro', sans-serif;
+    font-weight: normal;
+    color: $black;
+}
+
+//letter spacing
+.letter-spacing--1{
+    letter-spacing: 1px;
+}
+.letter-spacing--2{
+    letter-spacing: 2px;
+}
+.letter-spacing--3{
+    letter-spacing: 3px;
+}
+
+//font weight
+.fw--light {
+  font-weight: 200;
+}
+.fw--regular {
+  font-weight: 400;
+}
+.fw--medium {
+  font-weight: 500;
+}
+.fw--semibold {
+  font-weight: 600;
+}
+.fw--bold {
+  font-weight: 700;
+}
+
+//font sizes
+.text--xxxxxl {
+    font-size: 275px;
+    line-height: 275px;
+    letter-spacing: .18vw;
+}
+.text--xxxxl {
+    font-size: 7vw;
+    line-height: 8vw;
+    letter-spacing: .16vw;
+}
+.text--xxxl {
+    font-size: 4.6vw;
+    line-height: 4.9vw;
+    letter-spacing: .14vw;
+}
+.text--xxl {
+    font-size: 3vw;
+    line-height: 3.5vw;
+    letter-spacing: .12vw;
+}
+.text--xl {
+    font-size: 2.3vw;
+    line-height: 2.5vw;
+    letter-spacing: .10vw;
+}
+.text--lg {
+    font-size: 1.9vw;
+    line-height: 2.3vw;
+    letter-spacing: .08vw;
+}
+.text--md {
+    font-size: 1.2vw;
+    line-height: 1.7vw;
+    letter-spacing: .05vw;
+}
+.text--sm {
+    font-size: .9vw;
+    line-height: 1.2vw;
+    letter-spacing: .03vw;
+}
+.text--xs {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+
+// --------------------------------------------------------------------------
+
+//x menu
+.menu-offset{
+    padding-top: 100px;
+}
+
+
+//fullpage-intro
+.fullpage-intro{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    // video{
+    //     object-fit: cover;
+    //     width: 100vw;
+    //     height: 100vh;
+    //     top: 0;
+    //     left: 0;
+    //     position: fixed;
+    //     z-index: -1;
+    // }
+    .content{
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        top: 0;
+        .box-offset{
+            max-width: 35vw;
+            margin-left: 50vw;
+            text-align: left;
+            .btn{
+                &:hover{
+                    color: black !important;
+                }
+            }
+        }
+    }
+}
+
+
+// @import '../views/front/components/mouse/mouse';
+
+
+//slider product homepage
+.slider-product{
+    width: calc(100% - 200px);
+    left: 100px;
+    .glide__arrow--left {
+        left: -100px;
+        svg{
+            transform: rotate(180deg);
+        }
+    }
+    .glide__arrow--right {
+        right: -100px;
+    }
+    .glide__arrow{
+        background-color: $blue;
+        width: 50px;
+        height: 40%;
+        svg{
+            fill:white;
+            width: 20px;
+            height: 20px;
+        }
+    }
+    //product preview slider
+    .slider-product-preview{
+        .image{
+            width: 100%;
+            padding-bottom: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+
+.slider-half-content{
+    .glide__slides {transform:none !important; width:auto !important; display:block;}
+    .glide__slide {position:absolute; left:0; top:0; opacity:0; transition:opacity 1s;}
+    .glide__slide:first-child {position:relative;}
+    .glide__slide--active {z-index:1; opacity:1;}
+}
+.bg-full{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+
+}
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+}
+
+
+
+
+@include media-breakpoint-down(lg) {
+    .text--xxxxl {
+        font-size: 16vw;
+        line-height: 17vw;
+    }
+    .text--xxxl {
+        font-size: 14.5vw;
+        line-height: 15.5vw;
+    }
+    .text--xxl {
+        font-size: 10vw;
+        line-height: 11vw;
+    }
+    .text--xl {
+        font-size: 8.5vw;
+        line-height: 9.5vw;
+    }
+    .text--lg {
+        font-size: 7vw;
+    line-height: 8vw;
+    }
+    .text--md {
+        font-size: 5.5vw;
+        line-height: 6.5vw;
+        letter-spacing: inherit;
+    }
+    .text--sm {
+        font-size: 3.7vw;
+        line-height: 4.7vw;
+        letter-spacing: inherit;
+    }
+}

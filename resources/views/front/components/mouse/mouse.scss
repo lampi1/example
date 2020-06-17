@@ -1,0 +1,46 @@
+html, body, section, div{
+	cursor: none !important;
+	& > * {
+		cursor: none !important;
+	}
+}
+
+#cursor, #circle {
+	z-index: 99999;
+	position: fixed;
+	display: block;
+	left: 0;
+	top: 0;
+	transform: translate(-50%, -50%);
+	width: 25px;
+	height: 25px;
+	pointer-events: none !important;
+	svg{
+		top: 0px;
+	    position: absolute;
+		.arrow-left, .arrow-right{
+			opacity: 0;
+		}
+		.circle-in{
+			opacity: 1;
+			transform: scale(1.5);
+			transform-origin: center;
+		}
+		.circle-out{
+			stroke-width: 6px;
+			transform-origin: center;
+		}
+	}
+}
+
+@include media-breakpoint-down(lg) {
+	html, body, section, div{
+		cursor: inherit !important;
+		& > * {
+			cursor: inherit !important;
+		}
+	}
+	#cursor, #circle {
+		display: none !important;
+	}
+}

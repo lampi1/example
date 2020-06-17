@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'glyphter';
+    src: url('../fonts/glyphter.eot');
+    src: url('../fonts/glyphter?#iefix') format('embedded-opentype'),
+         url('../fonts/glyphter.woff') format('woff'),
+         url('../fonts/glyphter.ttf') format('truetype'),
+         url('../fonts/glyphter.svg#glyphter') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+ *[data-icon]{
+    display: inline-grid;
+    text-decoration: none !important;
+}
+ *[data-icon]:before {
+   content: attr(data-icon);
+   font-family: 'glyphter';
+   font-style: normal;
+   font-weight: normal;
+   line-height: 1;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale
+ }

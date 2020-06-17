@@ -1,0 +1,135 @@
+#sectionWrapper .card{
+    border-radius: 5px !important;
+}
+
+.form-builder__sidebar{
+    &__button{
+        color: $blue !important;
+        font-weight: 500;
+        &:hover, :focus{
+            color: #fff !important;
+            background-color: $purple !important;
+        }
+        &.ui-draggable-dragging{
+            border-radius: 0px !important;
+            background-color: $purple;
+            color: #ffffff !important;
+            border: 1px solid $purple !important;
+        }
+    }
+    .list-group-item{
+        border: 1px solid $blue !important;
+    }
+    .list-group-item:first-child {
+        border-top-left-radius: 0px !important;
+        border-top-right-radius: 0px !important;
+    }
+}
+
+.ui-state-highlight{
+    background-color: transparent !important;
+    border-radius: 5px;
+    border: 1px solid $blue !important;
+}
+.ui-sortable-helper{
+    border: 1px solid $blue !important;
+    background-color: $blue !important;
+    div.tools{
+        color: #fff !important;
+    }
+}
+
+.controlItem.onSelect{
+    border: none !important;
+    background-color: #B8D9F4 !important;
+    border-radius: 5px !important;
+    height: 100%;
+}
+
+.controlItemWrapper {
+    border: 1px solid $blue !important;
+    padding: 0;
+    border-radius: 0px;
+    margin-left: -1px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.controlItem{
+    border-radius: 5px !important;
+}
+
+
+.settingSidebar{
+    .table-striped tbody tr:nth-of-type(2n+1) {
+        background-color: rgba(0, 84, 156, 0.05);
+    }
+    .svg-inline--fa{
+        color: $blue !important;
+    }
+}
+
+#sectionWrapper input.hasDatepicker{
+    pointer-events: none;
+}
+
+.noty_message{
+    background-color: $purple !important;
+}
+#noty_topRight_layout_container li{
+    border: 1px solid $purple !important;
+}
+
+.datePickerControl input.hasDatepicker,{
+    width: calc(100% - 35px) !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.controltimepicker input{
+    width: calc(100% - 37px) !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.controlItem .hasDatepicker{
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.input-group > .input-group-append > .input-group-text{
+    color: #fff !important;
+    border-color: #00549C !important;
+    background-color: #00549C !important;
+}
+
+
+#sectionWrapper{
+.card-header {
+  padding: $card-spacer-y $card-spacer-x;
+  margin-bottom: 0; // Removes the default margin-bottom of <hN>
+  color: $card-cap-color;
+  background-color: $blue;
+  border-bottom: 0px solid $blue;
+
+  &:first-child {
+    @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
+  }
+
+  + .list-group {
+    .list-group-item:first-child {
+      border-top: 0;
+    }
+  }
+}
+
+.card-footer {
+  padding: $card-spacer-y $card-spacer-x;
+  background-color: $card-cap-bg;
+  border-top: $card-border-width solid $card-border-color;
+
+  &:last-child {
+    @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
+  }
+}
+}
