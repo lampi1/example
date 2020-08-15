@@ -25,11 +25,11 @@ class GalleryRequest extends FormRequest
     {
         $rules = [
             'user_id'          => 'nullable|exists:admins,id',
-            'gallery_category_id' => 'nullable|exists:gallery_categories,id',
+            'gallery_category_id' => 'required|exists:gallery_categories,id',
             'locale'           => 'nullable',
             'locale_group'     => 'nullable',
             'title'            => 'required|max:255',
-            'abstract'         => 'nullable|max:255',
+            'abstract'         => 'required|max:255',
             'content'          => 'nullable',
             'state'            => 'nullable',
             'image'            => 'nullable|file|image',
@@ -44,6 +44,12 @@ class GalleryRequest extends FormRequest
             'published_at'     => 'nullable|date_format:d/m/Y',
             'tags_string'      => 'nullable',
             'tags'             => 'nullable',
+            'year'             => 'nullable|max:10',
+            'owner'            => 'nullable|max:255',
+            'place'            => 'nullable|max:255',
+            'type'             => 'nullable|max:255',
+            'date'             => 'nullable|max:25',
+            'equipment'        => 'nullable',
         ];
 
         return $rules;

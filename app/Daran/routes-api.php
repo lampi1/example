@@ -154,6 +154,8 @@
     Route::post('/items/remove-image/{id}', ['as'=>'items.remove-image', 'uses' => 'ItemController@deleteImage']);
     Route::post('/items/add-image/{id}', ['as'=>'items.add-image', 'uses' => 'ItemController@addImage']);
     Route::post('/items/images-reorder/{id}', ['as'=>'items.images-reorder', 'uses' => 'ItemController@reorderImages']);
+    Route::post('/items/add-color/{id}', ['as'=>'items.add-color', 'uses' => 'ItemController@addColor']);
+    Route::post('/items/remove-color/{id}', ['as'=>'items.remove-color', 'uses' => 'ItemController@deleteColor']);
 
     //COUPONS
     Route::get('/coupons', ['as'=>'coupons.index', 'uses' => 'CouponController@getCoupons']);
@@ -188,25 +190,3 @@
     Route::post('/service-categories', ['as'=>'service-categories.store', 'uses' => 'ServiceCategoryController@store']);
     Route::post('/service-categories/reorder', ['as'=>'service-categories.reorder', 'uses' => 'ServiceCategoryController@reorder']);
     Route::delete('/service-categories/{id}', ['as'=>'service-categories.delete', 'uses' => 'ServiceCategoryController@destroy']);
-
-    //PROJECT CATEGORIES
-    Route::get('/project-categories', ['as'=>'project-categories.index', 'uses' => 'ProjectCategoryController@getCategories']);
-    Route::post('/project-categories', ['as'=>'project-categories.store', 'uses' => 'ProjectCategoryController@store']);
-    Route::post('/project-categories/reorder', ['as'=>'project-categories.reorder', 'uses' => 'ProjectCategoryController@reorder']);
-    Route::delete('/project-categories/{id}', ['as'=>'project-categories.delete', 'uses' => 'ProjectCategoryController@destroy']);
-    //PROJECTS
-    Route::get('/projects', ['as'=>'projects.index', 'uses' => 'ProjectController@getProjects']);
-    Route::post('/projects/reorder', ['as'=>'projects.reorder', 'uses' => 'ProjectController@reorder']);
-    Route::put('/projects/{id}', ['as'=>'projects.update', 'uses' => 'ProjectController@update']);
-    Route::delete('/projects/{id}', ['as'=>'projects.delete', 'uses' => 'ProjectController@destroy']);
-    Route::put('/project-image/{id}', ['as'=>'projects.img-delete', 'uses' => 'ProjectController@deleteImage']);
-    Route::put('/project-video/{id}', ['as'=>'projects.video-delete', 'uses' => 'ProjectController@deleteVideo']);
-    //PROJECT COMPONENTS
-    Route::get('/projects/{project_id}/components', ['as'=>'projects-components.index', 'uses' => 'ProjectController@getComponents']);
-    Route::post('/projects/{parent_id}/reorder', ['as'=>'projects-components.reorder', 'uses' => 'ProjectController@reorderComponents']);
-    Route::delete('/projects/component/{id}', ['as'=>'projects-components.delete', 'uses' => 'ProjectController@destroyComponent']);
-    Route::put('/component-image/{id}', ['as'=>'components.img-delete', 'uses' => 'ProjectController@deleteComponentImage']);
-    Route::post('/components/remove-image/{id}', ['as'=>'components.remove-image', 'uses' => 'ProjectController@destroyImage']);
-    Route::post('/components/add-image/{id}', ['as'=>'components.add-image', 'uses' => 'ProjectController@addImage']);
-    Route::post('/components/images-reorder/{id}', ['as'=>'components.images-reorder', 'uses' => 'ProjectController@reorderImages']);
-    Route::get('/components/{id}', ['as'=>'components.show', 'uses' => 'ProjectController@getComponent']);

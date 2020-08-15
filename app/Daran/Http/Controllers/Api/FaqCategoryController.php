@@ -72,23 +72,27 @@ class FaqCategoryController extends Controller
 
         if($old_index < $new_index){
             if(($new_index-$old_index) == 1){
-                $faqCategories = FaqCategory::where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->get();
+                //$faqCategories = FaqCategory::where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('faq_categories')->where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }else{
-                $faqCategories = FaqCategory::where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->get();
+                //$faqCategories = FaqCategory::where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('faq_categories')->where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }
         }else{
             if(($old_index-$new_index) == 1){
-                $faqCategories = FaqCategory::where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->get();
+                //$faqCategories = FaqCategory::where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('faq_categories')->where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }else{
-                $faqCategories = FaqCategory::where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->get();
+                //$faqCategories = FaqCategory::where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('faq_categories')->where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }
 
         }
 
-        foreach ($faqCategories as $faqCategory) {
-            $faqCategory->priority = ($old_index < $new_index) ? $newsCategory->priority-1 : $faqCategory->priority+1;
-            $faqCategory->save();
-        }
+        // foreach ($faqCategories as $faqCategory) {
+        //     $faqCategory->priority = ($old_index < $new_index) ? $newsCategory->priority-1 : $faqCategory->priority+1;
+        //     $faqCategory->save();
+        // }
 
         return response()->json([
             'success' => true

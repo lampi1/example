@@ -51,9 +51,6 @@ class PageRequest extends FormRequest
             'tags'             => 'nullable',
             'attachment_title' => 'nullable',
             'attachment_file'  => 'nullable',
-            'video_mp4'        => 'nullable|file',
-            'video_ogv'        => 'nullable|file',
-            'video_webm'       => 'nullable|file',
         ];
 
         return $rules;

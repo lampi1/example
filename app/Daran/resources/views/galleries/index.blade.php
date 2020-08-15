@@ -12,12 +12,12 @@
 @section('content')
 @include('daran::layouts._messages')
     <div class="row">
-        {{-- <div class="col-12 mb-2 text-right">
+        <div class="col-12 mb-2 text-right">
             <a href="{{ route('admin.gallery-categories.index') }}" class="btn btn-secondary">@lang('daran::common.categories')</a>
             @can('create gallery')
                 <a href="{{ route('admin.galleries.create') }}" class="btn btn-primary">@lang('daran::common.create')</a>
             @endcan
-        </div> --}}
+        </div>
         <div class="col-12">
             <hr>
         </div>

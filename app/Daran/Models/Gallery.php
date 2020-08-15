@@ -61,7 +61,7 @@ class Gallery extends Model implements HasMeta
 
     public function gallery_medias()
     {
-        return $this->hasMany('App\Daran\Models\GalleryMedia')->orderBy('title');
+        return $this->hasMany('App\Daran\Models\GalleryMedia');
     }
 
     /**

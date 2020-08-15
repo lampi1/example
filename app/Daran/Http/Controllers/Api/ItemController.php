@@ -106,23 +106,27 @@ class ItemController extends Controller
 
         if($old_index < $new_index){
             if(($new_index-$old_index) == 1){
-                $items = Item::where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->whereNull('deleted_at')->get();
+                //$items = Item::where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->whereNull('deleted_at')->get();
+                DB::table('items')->where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }else{
-                $items = Item::where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->whereNull('deleted_at')->get();
+                //$items = Item::where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->whereNull('deleted_at')->get();
+                DB::table('items')->where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }
         }else{
             if(($old_index-$new_index) == 1){
-                $items = Item::where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->whereNull('deleted_at')->get();
+                //$items = Item::where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->whereNull('deleted_at')->get();
+                DB::table('items')->where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }else{
-                $items = Item::where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->whereNull('deleted_at')->get();
+                //$items = Item::where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->whereNull('deleted_at')->get();
+                DB::table('items')->where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }
 
         }
 
-        foreach ($items as $item) {
-            $item->priority = ($old_index < $new_index) ? $item->priority-1 : $item->priority+1;
-            $item->save();
-        }
+        // foreach ($items as $item) {
+        //     $item->priority = ($old_index < $new_index) ? $item->priority-1 : $item->priority+1;
+        //     $item->save();
+        // }
 
         return response()->json([
             'success' => true

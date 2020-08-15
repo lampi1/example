@@ -72,23 +72,27 @@ class NewsCategoryController extends Controller
 
         if($old_index < $new_index){
             if(($new_index-$old_index) == 1){
-                $newsCategories = NewsCategory::where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->get();
+                //$newsCategories = NewsCategory::where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('news_categories')->where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }else{
-                $newsCategories = NewsCategory::where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->get();
+                //$newsCategories = NewsCategory::where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('news_categories')->where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }
         }else{
             if(($old_index-$new_index) == 1){
-                $newsCategories = NewsCategory::where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->get();
+                //$newsCategories = NewsCategory::where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('news_categories')->where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }else{
-                $newsCategories = NewsCategory::where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->get();
+                //$newsCategories = NewsCategory::where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('news_categories')->where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }
 
         }
 
-        foreach ($newsCategories as $newsCategory) {
-            $newsCategory->priority = ($old_index < $new_index) ? $newsCategory->priority-1 : $newsCategory->priority+1;
-            $newsCategory->save();
-        }
+        // foreach ($newsCategories as $newsCategory) {
+        //     $newsCategory->priority = ($old_index < $new_index) ? $newsCategory->priority-1 : $newsCategory->priority+1;
+        //     $newsCategory->save();
+        // }
 
         return response()->json([
             'success' => true

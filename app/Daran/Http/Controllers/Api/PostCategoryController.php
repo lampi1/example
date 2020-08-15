@@ -72,23 +72,27 @@ class PostCategoryController extends Controller
 
         if($old_index < $new_index){
             if(($new_index-$old_index) == 1){
-                $postCategories = PostCategory::where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->get();
+                //$postCategories = PostCategory::where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('post_categories')->where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }else{
-                $postCategories = PostCategory::where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->get();
+                //$postCategories = PostCategory::where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('post_categories')->where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }
         }else{
             if(($old_index-$new_index) == 1){
-                $postCategories = PostCategory::where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->get();
+                //$postCategories = PostCategory::where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('post_categories')->where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }else{
-                $postCategories = PostCategory::where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->get();
+                //$postCategories = PostCategory::where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('post_categories')->where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }
 
         }
 
-        foreach ($postCategories as $postCategory) {
-            $postCategory->priority = ($old_index < $new_index) ? $postCategory->priority-1 : $postCategory->priority+1;
-            $postCategory->save();
-        }
+        // foreach ($postCategories as $postCategory) {
+        //     $postCategory->priority = ($old_index < $new_index) ? $postCategory->priority-1 : $postCategory->priority+1;
+        //     $postCategory->save();
+        // }
 
         return response()->json([
             'success' => true

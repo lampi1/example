@@ -96,7 +96,7 @@ class PageController extends Controller
             }
         }
 
-        $page = new Page($request->except('files','image','image_sm','tags','attachment_title','attachment_file','tags_string','content','video_mp4','video_ogv','video_webm'));
+        $page = new Page($request->except('files','image','image_sm','tags','attachment_title','attachment_file','tags_string','content'));
         $page->user_id = Auth::user()->id;
         $page->locale = $request->filled('locale') ? $request->locale : session('working_lang', Lang::getLocale());
         $page->locale_group = $request->filled('locale_group') ? $request->locale_group : Str::random(20);
@@ -128,27 +128,6 @@ class PageController extends Controller
             $img = $this->makeImage($file);
             $nome_originale = $page->locale.'-mobile-'.Str::slug($page->title).'_'.uniqid().'.'.$extension;
             $page->image_sm = $this->saveImage($img,$nome_originale, config('daran.images.breakpoints.mobile'), true);
-        }
-
-        if ($request->hasFile('video_mp4')) {
-            $file = $request->file('video_mp4');
-            $extension = $file->getClientOriginalExtension() ?: 'mp4';
-            $nome_originale = $page->locale.'-'.Str::slug($page->title).'_'.uniqid().'.'.$extension;
-            $page->video_mp4 = $this->saveFile($file,$nome_originale);
-        }
-
-        if ($request->hasFile('video_ogv')) {
-            $file = $request->file('video_ogv');
-            $extension = $file->getClientOriginalExtension() ?: 'mp4';
-            $nome_originale = $page->locale.'-'.Str::slug($page->title).'_'.uniqid().'.'.$extension;
-            $page->video_ogv = $this->saveFile($file,$nome_originale);
-        }
-
-        if ($request->hasFile('video_webm')) {
-            $file = $request->file('video_webm');
-            $extension = $file->getClientOriginalExtension() ?: 'mp4';
-            $nome_originale = $page->locale.'-'.Str::slug($page->title).'_'.uniqid().'.'.$extension;
-            $page->video_webm = $this->saveFile($file,$nome_originale);
         }
 
         $page->save();
@@ -254,7 +233,7 @@ class PageController extends Controller
             $page->published_at = new Carbon();
         }
 
-        $page->update($request->except('files','image','image_sm','tags','attachment_title','attachment_file','tags_string','content','video_mp4','video_ogv','video_webm'));
+        $page->update($request->except('files','image','image_sm','tags','attachment_title','attachment_file','tags_string','content'));
         $page->user_id = Auth::user()->id;
 
         if($request->filled('content')){
@@ -277,30 +256,6 @@ class PageController extends Controller
             $img = $this->makeImage($file);
             $nome_originale = $page->locale.'-mobile-'.Str::slug($page->title).'_'.uniqid().'.'.$extension;
             $page->image_sm = $this->saveImage($img,$nome_originale, config('daran.images.breakpoints.mobile'));
-        }
-
-        if ($request->hasFile('video_mp4')) {
-            $filename[] = $page->video_mp4;
-            $file = $request->file('video_mp4');
-            $extension = $file->getClientOriginalExtension() ?: 'mp4';
-            $nome_originale = $page->locale.'-'.Str::slug($page->title).'_'.uniqid().'.'.$extension;
-            $page->video_mp4 = $this->saveFile($file,$nome_originale);
-        }
-
-        if ($request->hasFile('video_ogv')) {
-            $filename[] = $page->video_ogv   ;
-            $file = $request->file('video_ogv');
-            $extension = $file->getClientOriginalExtension() ?: 'mp4';
-            $nome_originale = $page->locale.'-'.Str::slug($page->title).'_'.uniqid().'.'.$extension;
-            $page->video_ogv = $this->saveFile($file,$nome_originale);
-        }
-
-        if ($request->hasFile('video_webm')) {
-            $filename[] = $page->video_webm   ;
-            $file = $request->file('video_webm');
-            $extension = $file->getClientOriginalExtension() ?: 'mp4';
-            $nome_originale = $page->locale.'-'.Str::slug($page->title).'_'.uniqid().'.'.$extension;
-            $page->video_webm = $this->saveFile($file,$nome_originale);
         }
 
         if (!$request->has('seo')){

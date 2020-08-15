@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-12 mb-3">
                         <label class="control-label">@lang('daran::coupon.date_end')</label>
-                        <input type="text" class="form_datetime" name="date_end" id="date_end" value="@if($coupon->date_end){{$coupon->date_end->format('d/m/Y')}}@endif" />
+                        <input type="text" class="form_date" name="date_end" id="date_end" value="@if($coupon->date_end){{$coupon->date_end->format('d/m/Y')}}@endif" />
                     </div>
                 </div>
             </div>

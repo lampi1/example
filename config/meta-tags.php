@@ -9,7 +9,7 @@ return array(
      |
      */
 
-    'title' => 'Inaction',
+    'title' => config('app.title'),
 
     /*
      |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return array(
      */
 
     'open_graph' => [
-        'site_name' => 'Inaction',
+        'site_name' => config('app.title'),
         'type' => 'website'
     ],
 
@@ -74,5 +74,5 @@ return array(
      |
      */
 
-    'locales' => ['en', 'it'],
+    'locales' => ['it', 'en'],
 );

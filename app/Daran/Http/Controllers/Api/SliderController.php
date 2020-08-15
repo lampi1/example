@@ -162,22 +162,26 @@ class SliderController extends Controller
 
         if($old_index < $new_index){
             if(($new_index-$old_index) == 1){
-                $slides = Slide::where('slider_id',$parent_id)->where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->get();
+                //$slides = Slide::where('slider_id',$parent_id)->where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('slides')->where('slider_id',$parent_id)->where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }else{
-                $slides = Slide::where('slider_id',$parent_id)->where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->get();
+                //$slides = Slide::where('slider_id',$parent_id)->where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('slides')->where('slider_id',$parent_id)->where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }
         }else{
             if(($old_index-$new_index) == 1){
-                $slides = Slide::where('slider_id',$parent_id)->where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->get();
+                //$slides = Slide::where('slider_id',$parent_id)->where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('slides')->where('slider_id',$parent_id)->where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }else{
-                $slides = Slide::where('slider_id',$parent_id)->where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->get();
+                //$slides = Slide::where('slider_id',$parent_id)->where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('slides')->where('slider_id',$parent_id)->where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }
         }
 
-        foreach ($slides as $slide) {
-            $slide->priority = ($old_index < $new_index) ? $slide->priority-1 : $slide->priority+1;
-            $slide->save();
-        }
+        // foreach ($slides as $slide) {
+        //     $slide->priority = ($old_index < $new_index) ? $slide->priority-1 : $slide->priority+1;
+        //     $slide->save();
+        // }
 
         return response()->json([
             'success' => true

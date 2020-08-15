@@ -261,7 +261,7 @@ class GalleryController extends Controller
             abort(503);
         }
 
-        $media = new GalleryMedia($request->except('image','image_xs'));
+        $media = new GalleryMedia($request->except('image','image_xs','video'));
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -282,6 +282,12 @@ class GalleryController extends Controller
             $img = $this->makeImage($file);
             $nome_originale = 'mobile-'.Str::slug($media->title).'_'.uniqid().'.'.$extension;
             $media->image_sm = $this->saveImage($img,$nome_originale, config('daran.images.breakpoints.mobile'), true);
+        }
+        if ($request->hasFile('video')) {
+            $file = $request->file('video');
+            $extension = $file->getClientOriginalExtension() ?: 'mp4';
+            $nome_originale = Str::slug($media->title).'_'.uniqid().'.'.$extension;
+            $media->video = $this->saveFile($file,$nome_originale);
         }
 
         if($media->save()){
@@ -308,7 +314,7 @@ class GalleryController extends Controller
         }
         $filename = array();
         $media = GalleryMedia::findOrFail($id);
-        $media->update($request->except('image','image_sm'));
+        $media->update($request->except('image','image_sm','video'));
 
         if ($request->hasFile('image')) {
             $filename[] = $media->image;
@@ -325,6 +331,13 @@ class GalleryController extends Controller
             $img = $this->makeImage($file);
             $nome_originale = 'mobile-'.Str::slug($media->title).'_'.uniqid().'.'.$extension;
             $media->image_sm = $this->saveImage($img,$nome_originale, config('daran.images.breakpoints.mobile'));
+        }
+        if ($request->hasFile('video')) {
+            $filename[] = $media->video;
+            $file = $request->file('video');
+            $extension = $file->getClientOriginalExtension() ?: 'mp4';
+            $nome_originale = Str::slug($media->title).'_'.uniqid().'.'.$extension;
+            $media->video = $this->saveFile($file,$nome_originale);
         }
 
         if($media->save()){

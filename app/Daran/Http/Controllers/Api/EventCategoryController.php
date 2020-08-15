@@ -71,23 +71,27 @@ class EventCategoryController extends Controller
 
         if($old_index < $new_index){
             if(($new_index-$old_index) == 1){
-                $eventCategories = EventCategory::where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->get();
+                //$eventCategories = EventCategory::where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('event_categories')->where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }else{
-                $eventCategories = EventCategory::where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->get();
+                //$eventCategories = EventCategory::where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('event_categories')->where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }
         }else{
             if(($old_index-$new_index) == 1){
-                $eventCategories = EventCategory::where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->get();
+                //$eventCategories = EventCategory::where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('event_categories')->where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }else{
-                $eventCategories = EventCategory::where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->get();
+                //$eventCategories = EventCategory::where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('event_categories')->where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }
 
         }
 
-        foreach ($eventCategories as $eventCategory) {
-            $eventCategory->priority = ($old_index < $new_index) ? $eventCategory->priority-1 : $eventCategory->priority+1;
-            $eventCategory->save();
-        }
+        // foreach ($eventCategories as $eventCategory) {
+        //     $eventCategory->priority = ($old_index < $new_index) ? $eventCategory->priority-1 : $eventCategory->priority+1;
+        //     $eventCategory->save();
+        // }
 
         return response()->json([
             'success' => true

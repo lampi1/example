@@ -95,7 +95,7 @@ class NewsController extends Controller
         $news->locale = $request->filled('locale') ? $request->locale : session('working_lang', Lang::getLocale());
         $news->locale_group = $request->filled('locale_group') ? $request->locale_group : Str::random(20);
 
-        if ($news->state == 'published') {
+        if ($news->state == 'public') {
             $news->published_at = new Carbon();
         }
 

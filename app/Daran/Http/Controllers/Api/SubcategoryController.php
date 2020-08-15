@@ -76,26 +76,31 @@ class SubcategoryController extends Controller
         $category = Subcategory::find($id);
         $category->priority = $new_index;
         $category->save();
+        $category_id = $category->category_id;
 
         if($old_index < $new_index){
             if(($new_index-$old_index) == 1){
-                $categories = Subcategory::where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->get();
+                //$categories = Subcategory::where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('subcategories')->where('category_id',$category_id)->where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }else{
-                $categories = Subcategory::where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->get();
+                //$categories = Subcategory::where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('subcategories')->where('category_id',$category_id)->where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }
         }else{
             if(($old_index-$new_index) == 1){
-                $categories = Subcategory::where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->get();
+                //$categories = Subcategory::where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('subcategories')->where('category_id',$category_id)->where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }else{
-                $categories = Subcategory::where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->get();
+                //$categories = Subcategory::where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('subcategories')->where('category_id',$category_id)->where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }
 
         }
 
-        foreach ($categories as $category) {
-            $category->priority = ($old_index < $new_index) ? $category->priority-1 : $category->priority+1;
-            $category->save();
-        }
+        // foreach ($categories as $category) {
+        //     $category->priority = ($old_index < $new_index) ? $category->priority-1 : $category->priority+1;
+        //     $category->save();
+        // }
 
         return response()->json([
             'success' => true

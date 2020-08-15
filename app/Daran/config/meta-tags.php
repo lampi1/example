@@ -9,7 +9,7 @@ return array(
      |
      */
 
-    'title' => 'Inaction',
+    'title' => 'My Site',
 
     /*
      |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return array(
      */
 
     'open_graph' => [
-        'site_name' => 'Inaction',
+        'site_name' => 'My Site',
         'type' => 'website'
     ],
 
@@ -74,5 +74,5 @@ return array(
      |
      */
 
-    'locales' => ['en', 'it'],
+    'locales' => ['en', 'es'],
 );

@@ -188,39 +188,6 @@
             <div class="col-12 mb-3">
                 <div class="row">
                     <div class="col-12">
-                        <label for="video_mp4" class="control-label">Video Formato MP4</label>
-                    </div>
-                    <div class="col-12">
-                        @if($page->video_mp4)
-                            <a target="_blank" href="{{config('app.url').$page->video_mp4}}">Vedi</a>
-                        @endif
-                        <input type="file" name="video_mp4" value="" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <label for="video_ovg" class="control-label">Video Formato OVG</label>
-                    </div>
-                    <div class="col-12">
-                        @if($page->video_ovg)
-                            <a target="_blank" href="{{config('app.url').$page->video_ovg}}">Vedi</a>
-                        @endif
-                        <input type="file" name="video_ovg" value="" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <label for="video_webm" class="control-label">Video Formato WebM</label>
-                    </div>
-                    <div class="col-12">
-                        @if($page->video_webm)
-                            <a target="_blank" href="{{config('app.url').$page->video_webm}}">Vedi</a>
-                        @endif
-                        <input type="file" name="video_webm" value="" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
                         <label for="image" class="control-label">@lang('daran::common.featured-img')</label>
                     </div>
                     <div class="col-12">

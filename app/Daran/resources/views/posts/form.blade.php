@@ -161,7 +161,7 @@
                                     <td>@lang('daran::common.'.$post_trans->locale)</td>
                                     @can('edit post')
                                         <td class="text-right">
-                                            <a class="ico" href="{{ route('admin.posts.edit', ['id' => $post_trans->id]) }}" data-icon="N" title="@lang('daran::common.edit')" data-tooltip="tooltip"></a>
+                                            <a class="ico" href="{{ route('admin.posts.edit', ['post' => $post_trans->id]) }}" data-icon="N" title="@lang('daran::common.edit')" data-tooltip="tooltip"></a>
                                             <a class="ico" href="{{ route('admin.posts.clone', ['id' => $post_trans->id,'locale' => $post_trans->locale, 'locale_group' => $post_trans->locale_group]) }}" data-icon="x" title="@lang('daran::common.duplicate')" data-tooltip="tooltip"></a>
                                             @can('delete post')
                                                 <a class="ico" href="#" data-icon="J" title="@lang('daran::common.delete')" data-tooltip="tooltip" data-name="{{$post_trans->title}}" data-id="{{$post_trans->id}}" data-toggle="modal" data-target="#confirm-delete"></a>

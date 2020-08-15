@@ -16,7 +16,7 @@
                 <a href="{{ route('admin.redirections.index') }}" class="btn btn-primary">@lang('daran::common.redirections')</a>
             @endcan
             <a href="{{ route('admin.settings.edit') }}" class="btn btn-primary">@lang('daran::common.general')</a>
-            @if('config.daran.ecommerce_enabled')
+            @if(config('daran.ecommerce_enabled'))
                 <a href="{{ route('admin.ecommerce-settings.edit') }}" class="btn btn-primary">@lang('daran::common.ecommerce')</a>
             @endif
         </div>

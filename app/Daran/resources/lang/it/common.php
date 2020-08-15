@@ -147,4 +147,5 @@ return array(
     'trend_fatturato'       => 'Trend fatturato',
     'set-lang'              => 'Imposta lingua a ',
     'ecommerce' => 'E-commerce',
+    'video' => 'Video',
 );

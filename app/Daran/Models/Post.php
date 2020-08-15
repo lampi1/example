@@ -58,19 +58,13 @@ class Post extends Model implements HasMeta
         return $this->hasMany('App\Daran\Models\PostAttachment');
     }
 
-    public function related()
-    {
-        return $this->belongsToMany('App\Daran\Models\Item', 'item_post', 'post_id', 'item_id')->where('stock','>',0)->where('published',1);
-    }
-
-
     /**
      * Get the options for generating the slug.
      */
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom(['name','locale'])
+            ->generateSlugsFrom(['title','locale'])
             ->saveSlugsTo('slug')
             ->doNotGenerateSlugsOnUpdate();
     }

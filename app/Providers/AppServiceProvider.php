@@ -14,9 +14,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         if (!$this->app->runningInConsole()){
-            $socials = Cache::remember('socials', 1, function () {
-                return \App\Daran\Models\Settings\Social::get();
-            });
+            // $socials = Cache::remember('socials', 1, function () {
+            //     return \App\Models\Settings\Social::get();
+            // });
             //
             // $ecommerce_settings = Cache::remember('ecommerce_settings', 1, function () {
             //     return \App\Models\Settings\Ecommerce::last()->first();
@@ -26,14 +26,9 @@ class AppServiceProvider extends ServiceProvider
                 return \App\Daran\Models\Settings\Contact::where('lang',Lang::getLocale())->first();
             });
 
-            $members = \App\Daran\Models\Member::orderBy('order','asc')->get();
 
 
-
-
-            View::share('socials', $socials);
-            View::share('members', $members);
-
+            //View::share('socials', $socials);
             // View::share('brandings', $brandings);
             // View::share('contacts', $contacts);
             //View::share('ecommerce_settings', $ecommerce_settings);

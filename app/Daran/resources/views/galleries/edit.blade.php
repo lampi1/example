@@ -48,6 +48,7 @@
         </div>
         <div class="col-12 mb-3">
             <a href="{{route('admin.medias.create',['id'=>$gallery->id, 'type' => 'image'])}}" class="btn btn-primary">@lang('daran::gallery.add-media')</a>
+            <a href="{{route('admin.medias.create',['id'=>$gallery->id, 'type' => 'video'])}}" class="btn btn-primary">@lang('daran::gallery.add-video-media')</a>
             <a href="{{ url()->previous() }}" id="bt-annulla" class="btn btn-info">@lang('daran::common.discard')</a>
         </div>
     </div>

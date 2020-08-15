@@ -5,13 +5,13 @@
  */
 
 return array(
-    'gallery'         => 'Clienti',
-    'galleries'       => 'Clienti',
+    'gallery'         => 'Portfolio',
+    'galleries'       => 'Portfolio',
     'title'           => 'Titolo',
     'abstract'        => 'Abstract',
     'content'         => 'Contenuto',
-    'create-gallery'  => 'Crea Cliente',
-    'edit-gallery'    => 'Modifica Cliente',
+    'create-gallery'  => 'Crea Portfolio',
+    'edit-gallery'    => 'Modifica Portfolio',
     'add-media'       => 'Aggiungi media',
     'add-video-media' => 'Aggiungi media Video',
     'year'             => 'Anno',

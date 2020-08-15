@@ -83,12 +83,12 @@ class PostCategoryController extends Controller
      * @param  \App\Models\PostCategory  $postCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(PostCategory $postCategory)
+    public function edit($id)
     {
         if(!Auth::user()->can('edit post')){
             abort(503);
         }
-
+        $postCategory = PostCategory::findOrFail($id);
         $tmp = config('app.available_translations');
         $locales = array();
         foreach ($tmp as $l) {

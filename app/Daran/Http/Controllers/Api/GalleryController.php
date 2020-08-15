@@ -145,7 +145,7 @@ class GalleryController extends Controller
         $sort = $request->get('sort','priority|asc');
         $sort_array = explode('|',$sort);
 
-        $qb = GalleryMedia::select('id','title','type','image','priority')->where('gallery_id',$gallery_id)->orderBy('title');
+        $qb = GalleryMedia::select('id','title','type','image','priority')->where('gallery_id',$gallery_id);
 
         $qb->when($request->filled('q'),function($q) use($request){
             return $q->where('title','like','%'.$request->get('q').'%');
@@ -194,22 +194,26 @@ class GalleryController extends Controller
 
         if($old_index < $new_index){
             if(($new_index-$old_index) == 1){
-                $gms = GalleryMedia::where('gallery_id',$parent_id)->where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->get();
+                //$gms = GalleryMedia::where('gallery_id',$parent_id)->where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('gallery_medias')->where('gallery_id',$parent_id)->where('priority', '<=',  $new_index)->where('priority', '>=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }else{
-                $gms = GalleryMedia::where('gallery_id',$parent_id)->where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->get();
+                //$gms = GalleryMedia::where('gallery_id',$parent_id)->where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('gallery_medias')->where('gallery_id',$parent_id)->where('priority', '<=',  $new_index)->where('priority', '>',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority - 1')]);
             }
         }else{
             if(($old_index-$new_index) == 1){
-                $gms = GalleryMedia::where('gallery_id',$parent_id)->where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->get();
+                //$gms = GalleryMedia::where('gallery_id',$parent_id)->where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('gallery_medias')->where('gallery_id',$parent_id)->where('priority', '>=',  $new_index)->where('priority', '<=',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }else{
-                $gms = GalleryMedia::where('gallery_id',$parent_id)->where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->get();
+                //$gms = GalleryMedia::where('gallery_id',$parent_id)->where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->get();
+                DB::table('gallery_medias')->where('gallery_id',$parent_id)->where('priority', '>=',  $new_index)->where('priority', '<',  $old_index)->where('id', '!=', $request->id)->update(['priority'=>DB::raw('priority + 1')]);
             }
         }
 
-        foreach ($gms as $gms) {
-            $gms->priority = ($old_index < $new_index) ? $gms->priority-1 : $gms->priority+1;
-            $gms->save();
-        }
+        // foreach ($gms as $gms) {
+        //     $gms->priority = ($old_index < $new_index) ? $gms->priority-1 : $gms->priority+1;
+        //     $gms->save();
+        // }
 
         return response()->json([
             'success' => true

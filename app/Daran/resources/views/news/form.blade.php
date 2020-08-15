@@ -5,10 +5,10 @@
             <label class="control-label">@lang('daran::common.title')*</label>
             <input type="text" name="title"required="required" maxlength="255" placeholder="@lang('daran::common.title')" value="{{old('title',$news->title)}}" />
         </div>
-        {{-- <div class="mb-3">
+        <div class="mb-3">
             <label class="control-label">@lang('daran::common.abstract')*</label>
             <input type="text" name="abstract" required="required" maxlength="255" placeholder="@lang('daran::common.abstract')" value="{{old('abstract',$news->abstract)}}" />
-        </div> --}}
+        </div>
         @if($news->slug)
             <div class="mb-3">
                 <label class="control-label">@lang('daran::common.slug')*</label>
@@ -16,7 +16,7 @@
             </div>
         @endif
         <div class="mb-3">
-            <label class="control-label">@lang('daran::common.content')</label>
+            <label class="control-label">@lang('daran::common.content')*</label>
             <daran-tiptap></daran-tiptap>
         </div>
         <!--seo -->
@@ -121,10 +121,6 @@
                         <option value="{{$k}}" {{($k == old('locale',$news->locale) ? "selected='selected'":"")}}>{{$v}}</option>
                     @endforeach
                 </select>
-            </div>
-            <div class="col-12 mb-3">
-                <label for="link" class="control-label">@lang('daran::common.link')</label>
-                <input type="text" name="link" value="{{$news->link}}" />
             </div>
             <div class="col-12 mb-3">
                 <label for="from" class="control-label">@lang('daran::common.schedule')</label>

@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="input--image__actions">
                                     <label for="image1" class="add btn btn-primary w-100" type="button" name="button" @if ($media->image) hidden="hidden" @endif>@lang('daran::common.select')</label>
-                                    <label data-type="standard" class="delete btn btn-danger w-100" type="button" name="button" @if (!$media->image) hidden="hidden" @endif>@lang('daran::common.delete')</label>
+                                    <label data-type="standard" class="delete delete-media btn btn-danger w-100" type="button" name="button" @if (!$media->image) hidden="hidden" @endif>@lang('daran::common.delete')</label>
                                 </div>
                             </div>
 
@@ -53,12 +53,34 @@
                                 </div>
                                 <div class="input--image__actions">
                                     <label for="image2" class="add btn btn-primary w-100" type="button" name="button" @if ($media->image_sm) hidden="hidden" @endif>@lang('daran::common.select')</label>
-                                    <label data-type="mobile" class="delete btn btn-danger w-100" type="button" name="button" @if (!$media->image_sm) hidden="hidden" @endif>@lang('daran::common.delete')</label>
+                                    <label data-type="mobile" class="delete delete-media btn btn-danger w-100" type="button" name="button" @if (!$media->image_sm) hidden="hidden" @endif>@lang('daran::common.delete')</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            @else
+            <div class="col-12 mb-3">
+                <div class="row">
+                    <div class="col-12">
+                        <label for="video" class="control-label">@lang('daran::common.video')</label>
+                    </div>
+                    <div class="col-12">
+                        <div class="input-image">
+                            <input id="video" type="file" name="video" accept="video/mp4,video/x-m4v,video/*">
+                            <div class="input--image__actions">
+                                @if ($media->video)
+                                    <video width="320" height="240" controls>
+                                        <source src="{{$media->video}}" type="video/mp4">
+                                    </video>
+                                @endif
+                                <label data-type="video" class="delete delete-media btn btn-danger w-100" type="button" name="button" @if (!$media->video) hidden="hidden" @endif>@lang('daran::common.delete')</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
             @endif
         </div>
     </div>

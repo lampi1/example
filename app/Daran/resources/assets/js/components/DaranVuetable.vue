@@ -68,10 +68,10 @@ import ItemFields from "./ItemFields.js";
 import OrderFields from "./OrderFields.js";
 import CouponFields from "./CouponFields.js";
 import FormFields from "./FormFields.js";
+import TypeFields from "./TypeFields.js";
+import ProductFields from "./ProductFields.js";
+import SoldArticlesField from "./SoldArticlesField.js";
 import UserFields from "./UserFields.js";
-import ServiceFields from "./ServiceFields.js";
-import ProjectFields from "./ProjectFields.js";
-import ComponentFields from "./ComponentFields.js";
 
 import { mapGetters } from 'vuex';
 import { mapActions } from 'vuex';
@@ -177,9 +177,13 @@ export default {
             this.fields = SliderFields;
             this.id_field = "slider";
             break;
+            case 'SoldArticles':
+            this.fields = SoldArticlesField;
+            this.id_field = "sold_article";
+            break;
             case 'Slide':
             this.fields = SlideFields;
-            this.id_field = "id";
+            this.id_field = "slide";
             break;
             case 'Gallery':
             this.fields = GalleryFields;
@@ -187,7 +191,7 @@ export default {
             break;
             case 'GalleryMedia':
             this.fields = GalleryMediaFields;
-            this.id_field = "id";
+            this.id_field = "gallerymedia";
             break;
             case 'Family':
             this.fields = FamilyFields;
@@ -217,21 +221,20 @@ export default {
             this.fields = FormFields;
             this.id_field = "form";
             break;
+            case 'Type':
+            this.fields = TypeFields;
+            this.id_field = "type";
+            break;
+            case 'Product':
+            this.fields = ProductFields;
+            this.id_field = "product";
+            break;
+            case 'ProductItems':
+            this.fields = ProductItemsFields;
+            this.id_field = "product-items";
+            break;
             case 'User':
             this.fields = UserFields;
-            this.id_field = "user";
-            break;
-            case 'Service':
-            this.fields = ServiceFields;
-            this.id_field = "service";
-            break
-            case 'Project':
-            this.fields = ProjectFields;
-            this.id_field = "project";
-            break;
-            case 'Component':
-            this.fields = ComponentFields;
-            this.id_field = "id";
             break;
         }
 
@@ -295,14 +298,25 @@ export default {
         onFieldEvent (action,data) {
             var route_param = this.id_field;
             switch(action){
+                case 'related-item':
+                    return window.location.href = route(this.routePrefix+'.related', {id: data.id});
                 case 'show-item':
-                    return window.location.href = route(this.routePrefix+'.show', {[route_param]: data.id});
+                    return window.location.href = route(this.routePrefix+'.show', {id: data.id});;
                 case 'clone-item':
                     return window.location.href = route(this.routePrefix+'.clone', {id: data.id});
                 case 'edit-item':
                     return window.location.href = route(this.routePrefix+'.edit', {[route_param]: data.id});
+                case 'item-group':
+                    return window.location.href = route(this.routePrefix+'.group', {id: data.id});
                 case 'change-state':
                     axios.put(route(this.routeApiPrefix+'.update-state', {id: data.id})).then(response => {
+                        if(response.data.success){
+                            this.$refs.vuetable.reload();
+                        }
+                    }).catch(e => {alert(e);})
+                    break;
+                case 'change-sync':
+                    axios.put(route(this.routeApiPrefix+'.update-sap', {id: data.id})).then(response => {
                         if(response.data.success){
                             this.$refs.vuetable.reload();
                         }

@@ -41,7 +41,7 @@
 
 
         //img 1
-        $('.input--image').on('click', '.delete',function(e){
+        $('.delete-media').on('click',function(e){
             var current_id = {{$media->id}};
             var type = $(this).data('type');
             $.ajax({
@@ -50,9 +50,14 @@
                 data: {_method: 'put' },
                 success: function (data){
                     if (data.success){
-                        e.currentTarget.hidden = true;
-                        e.delegateTarget.children[2].children[0].hidden = false;
-                        e.delegateTarget.children[1].innerHTML= ""
+                        if(type == 'video'){
+                            window.location.reload();
+                        }else{
+                            e.currentTarget.hidden = true;
+                            e.delegateTarget.children[2].children[0].hidden = false;
+                            e.delegateTarget.children[1].innerHTML= ""
+                        }
+
                     } else {
                         bootbox.alert("@lang('daran::common.default-error')");
                     }

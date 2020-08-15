@@ -29,7 +29,7 @@ class NewsRequest extends FormRequest
             'locale'           => 'nullable',
             'locale_group'     => 'nullable',
             'title'            => 'required|max:255',
-            // 'abstract'         => 'required|max:255',
+            'abstract'         => 'required|max:255',
             'content'          => 'required',
             'state'            => 'nullable',
             'image'            => 'nullable|file|image',

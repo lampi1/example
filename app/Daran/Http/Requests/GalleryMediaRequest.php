@@ -28,10 +28,10 @@ class GalleryMediaRequest extends FormRequest
             'title'            => 'required|max:255',
             'subtitle'         => 'nullable|max:255',
             'caption'          => 'nullable|max:255',
-            'link'             => 'required_if:type,==,video|max:255',
+            'link'             => 'nullable|max:255',
             'image'            => 'nullable|file|image',
-            'image_sm'          => 'nullable|file|image',
-
+            'image_sm'         => 'nullable|file|image',
+            'video'            => 'nullable|file|file',
         ];
 
         return $rules;

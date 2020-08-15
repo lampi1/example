@@ -10,7 +10,10 @@ Route::resource('pages', 'PageController', ['except' => ['show','delete']]);
 Route::get('/pages/{id}/clone', ['as'=>'pages.clone', 'uses' => 'PageController@clone']);
 
 //CRUD POST CATEGORY
-Route::resource('post-categories', 'PostCategoryController', ['except' => ['show','delete']]);
+Route::get('/post-categories/{category}/edit', ['as'=>'post-categories.edit', 'uses' => 'PostCategoryController@edit']);
+Route::resource('post-categories', 'PostCategoryController', ['except' => ['show','delete','edit']]);
+Route::get('/post-category/{id}/clone', ['as'=>'post-categories.clone', 'uses' => 'PostCategoryController@clone']);
+
 
 //CRUD POST
 Route::resource('posts', 'PostController', ['except' => ['show','delete']]);
@@ -137,16 +140,3 @@ Route::get('/service-category/{id}/clone', ['as'=>'service-categories.clone', 'u
 //CRUD SERVICES
 Route::resource('services', 'ServiceController', ['except' => ['show','delete']]);
 Route::get('/services/{id}/clone', ['as'=>'services.clone', 'uses' => 'ServiceController@clone']);
-
-//CRUD PROJECT CATEGORY
-Route::resource('project-categories', 'ProjectCategoryController', ['except' => ['show','delete']]);
-Route::get('/project-categories/{id}/clone', ['as'=>'project-categories.clone', 'uses' => 'ProjectCategoryController@clone']);
-//CRUD PROGETTI
-Route::resource('projects', 'ProjectController', ['except' => ['show','delete']]);
-Route::get('/projects/{id}/clone', ['as'=>'projects.clone', 'uses' => 'ProjectController@clone']);
-Route::get('/projects/{id}/add-component', ['as'=>'projects.add-component', 'uses' => 'ProjectController@addComponent']);
-Route::post('/projects/add-component', ['as'=>'projects.store-component', 'uses' => 'ProjectController@storeComponent']);
-Route::get('/components/{id}/clone', ['as'=>'components.clone', 'uses' => 'ProjectController@cloneComponent']);
-Route::get('/components/{id}/edit', ['as'=>'components.edit', 'uses' => 'ProjectController@editComponent']);
-Route::put('/components/{id}', ['as'=>'components.update', 'uses' => 'ProjectController@updateComponent']);
-Route::get('/components/{id}/images', ['as'=>'components.edit_images', 'uses' => 'ProjectController@editImages']);

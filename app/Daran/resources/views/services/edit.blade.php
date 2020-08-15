@@ -27,7 +27,7 @@
                             </button>
                         @endcan
                         <button type="button" class="btn btn-primary" id="save-draft">@lang('daran::common.draft')</button>
-                        {{-- <a target="_blank" href="{{LaravelLocalization::getLocalizedURL($service->locale, route('services.view',['permalink'=>$service->slug]))}}" class="btn btn-secondary" >@lang('daran::common.preview')</a> --}}
+                        <a target="_blank" href="{{LaravelLocalization::getLocalizedURL($service->locale, route('services.view',['permalink'=>$service->slug]))}}" class="btn btn-secondary" >@lang('daran::common.preview')</a>
                         <a href="{{ url()->previous() }}" id="bt-annulla" class="btn btn-info">@lang('daran::common.discard')</a>
 
                     </div>

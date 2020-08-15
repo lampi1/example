@@ -8,24 +8,24 @@
              </div>
         </div>
         <div class="col-12 mb-4">
-            <a class="sidebar__link {{request()->is('*pages*') ? 'active' : '' }}" href="{{route('admin.pages.index')}}" title="@lang('daran::page.pages')">
+            {{-- <a class="sidebar__link {{request()->is('*pages*') ? 'active' : '' }}" href="{{route('admin.pages.index')}}" title="@lang('daran::page.pages')">
                 <span>@lang('daran::page.pages')</span>
-            </a>
+            </a> --}}
             {{-- <a class="sidebar__link {{request()->is('*posts*') ? 'active' : '' }}" href="{{route('admin.posts.index')}}" title="@lang('daran::post.posts')">
                 <span>@lang('daran::post.posts')</span>
             </a> --}}
             <a class="sidebar__link {{request()->is('*news*') ? 'active' : '' }}" href="{{route('admin.news.index')}}" title="@lang('daran::news.news')">
                 <span>@lang('daran::news.news')</span>
             </a>
-            {{-- <a class="sidebar__link {{request()->is('*services*') ? 'active' : '' }}" href="{{route('admin.services.index')}}" title="@lang('daran::service.services')">
+            <a class="sidebar__link {{request()->is('*services*') ? 'active' : '' }}" href="{{route('admin.services.index')}}" title="@lang('daran::service.services')">
                 <span>@lang('daran::service.services')</span>
-            </a> --}}
+            </a>
             {{-- <a class="sidebar__link {{request()->is('*events*') ? 'active' : '' }}" href="{{route('admin.events.index')}}" title="@lang('daran::event.events')">
                 <span>@lang('daran::event.events')</span>
-            </a> --}}
-            <a class="sidebar__link {{request()->is('*projects*') ? 'active' : '' }}" href="{{route('admin.projects.index')}}" title="Progetti">
-                <span>Progetti</span>
             </a>
+            <a class="sidebar__link {{request()->is('*faqs*') ? 'active' : '' }}" href="{{route('admin.faqs.index')}}" title="@lang('daran::faq.faqs')">
+                <span>@lang('daran::faq.faqs')</span>
+            </a> --}}
             <a class="sidebar__link {{request()->is('*sliders*') ? 'active' : '' }}" href="{{route('admin.sliders.index')}}" title="@lang('daran::slider.sliders')">
                 <span>@lang('daran::slider.sliders')</span>
             </a>
