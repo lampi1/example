@@ -20,6 +20,9 @@ class PackagingTypeController extends Controller
 
         $qb = DB::table('packaging_types')->select('id','name','priority');
 
+
+
+
         $qb->when($request->filled('q'),function($q) use($request){
             return $q->where('name','like','%'.$request->get('q').'%');
         });

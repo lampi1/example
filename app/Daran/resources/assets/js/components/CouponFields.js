@@ -13,6 +13,6 @@ export default [
     },{
      name: 'user',title:'UTENTE',sortField: 'user_id'
     },{
-      name: '__actions', title: 'Gestione', show_button: false
+      name: '__actions', title: 'Gestione', show_duplicate_button:true, show_edit_button:true, show_delete_button:true, show_details_button:false
    }
 ];

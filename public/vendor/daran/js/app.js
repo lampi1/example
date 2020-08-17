@@ -485,7 +485,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'Gestione',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -526,7 +529,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'Gestione',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -857,7 +863,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'GESTIONE',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -904,7 +913,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'Gestione',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -952,7 +964,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'GESTIONE',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -1058,7 +1073,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'GESTIONE',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -1106,7 +1124,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'GESTIONE',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -1141,7 +1162,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'Gestione',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -1279,7 +1303,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'Gestione',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -1401,7 +1428,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'Gestione',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -1526,7 +1556,10 @@ numeral__WEBPACK_IMPORTED_MODULE_2___default.a.locale('it');
 }, {
   name: '__actions',
   title: 'Gestione',
-  show_only_button: true
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -1613,7 +1646,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'GESTIONE',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -1826,7 +1862,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'GESTIONE',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -1916,7 +1955,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'GESTIONE',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -1998,7 +2040,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'Gestione',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -2048,7 +2093,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'Gestione',
-  show_button: false
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
@@ -79570,8 +79618,10 @@ var render = function() {
             {
               name: "show",
               rawName: "v-show",
-              value: _vm.rowField.show_delete_button,
-              expression: "rowField.show_delete_button"
+              value:
+                _vm.rowField.show_delete_button && !_vm.rowData.disable_delete,
+              expression:
+                "rowField.show_delete_button && !rowData.disable_delete"
             }
           ],
           staticClass: "ico",

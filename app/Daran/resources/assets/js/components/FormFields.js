@@ -10,6 +10,6 @@ export default [
    },{
       name: 'created_at',title:'CREATO IL', sortField:'created_at',formatter: (value) => {return (value === null) ? '' : moment(value, 'YYYY-MM-DD').format('DD-MM-YYYY')}
    },{
-      name: '__actions', title: 'GESTIONE', show_button: false
+      name: '__actions', title: 'GESTIONE', show_duplicate_button:true, show_edit_button:true, show_delete_button:true, show_details_button:false
    }
 ];
