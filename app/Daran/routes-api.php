@@ -131,6 +131,11 @@
     Route::put('/family-image/{id}', ['as'=>'families.img-delete', 'uses' => 'FamilyController@deleteImage']);
     Route::delete('/families/{id}', ['as'=>'families.delete', 'uses' => 'FamilyController@destroy']);
 
+    //Packaging Types
+    Route::get('/packaging-types', ['as'=>'packaging-types.index', 'uses' => 'PackagingTypeController@getFamilies']);
+    Route::post('/packaging-types/reorder', ['as'=>'packaging-types.reorder', 'uses' => 'PackagingTypeController@reorder']);
+    Route::delete('/packaging-types/{id}', ['as'=>'packaging-types.delete', 'uses' => 'PackagingTypeController@destroy']);
+
     //ITEM CATEGORIES
     Route::get('/categories', ['as'=>'categories.index', 'uses' => 'CategoryController@getCategories']);
     Route::post('/categories/reorder', ['as'=>'categories.reorder', 'uses' => 'CategoryController@reorder']);

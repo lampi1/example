@@ -118,6 +118,8 @@ Route::get('/discount', ['as'=>'items.discount', 'uses' => 'ItemController@disco
 Route::post('/discount', ['as'=>'items.save-discount', 'uses' => 'ItemController@saveDiscount']);
 Route::get('/items/{id}/colors', ['as'=>'items.edit_colors', 'uses' => 'ItemController@editColors']);
 
+Route::resource('packaging-types', 'PackagingTypeController', ['except' => ['show','delete']]);
+
 //CRUD COUPON
 Route::resource('coupons', 'CouponController', ['except' => ['show','delete']]);
 Route::get('/coupons/{id}/clone', ['as'=>'coupons.clone', 'uses' => 'CouponController@clone']);

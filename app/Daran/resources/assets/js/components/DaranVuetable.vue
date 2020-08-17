@@ -62,6 +62,7 @@ import SlideFields from "./SlideFields.js";
 import GalleryFields from "./GalleryFields.js";
 import GalleryMediaFields from "./GalleryMediaFields.js";
 import FamilyFields from "./FamilyFields.js";
+import PackagingTypeFields from "./PackagingTypeFields.js";
 import ItemCategoryFields from "./ItemCategoryFields.js";
 import ItemSubcategoryFields from "./ItemSubcategoryFields.js";
 import ItemFields from "./ItemFields.js";
@@ -196,6 +197,10 @@ export default {
             case 'Family':
             this.fields = FamilyFields;
             this.id_field = "family";
+            break;
+            case 'PackagingType':
+            this.fields = PackagingTypeFields;
+            this.id_field = "packagingType";
             break;
             case 'ItemCategory':
             this.fields = ItemCategoryFields;

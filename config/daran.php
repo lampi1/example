@@ -11,7 +11,7 @@ return [
         'ipad_icon' => 167,
     ],
     'ecommerce' => [
-        'enable' => false,
+        'enable' => true,
     ],
     'analytics' => [
         'view_id' => env('ANALYTICS_VIEW_ID',null),
