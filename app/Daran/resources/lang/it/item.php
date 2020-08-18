@@ -33,6 +33,8 @@ return array(
     'images'                => 'Immagini',
     'related'               => 'Correlati',
     'add-related'           => 'Aggiungi Correlati',
+    'create-packaging-types'   => 'Crea Tipologia di Packaging',
+    'edit-packaging-types'     => 'Modifica Tipologia di Packaging',
     'create-family'         => 'Crea Famiglia',
     'edit-family'           => 'Modifica Famiglia',
     'create-category'       => 'Crea Categoria',

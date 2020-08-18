@@ -18,9 +18,13 @@ class PackagingTypeController extends Controller
         $limit = $request->get('per_page',25);
         $sort = $request->get('sort','id|desc');
 
-        $qb = DB::table('packaging_types')->select('id','name','priority');
+        // $qb = DB::table('packaging_types')->select('id','name','priority');
 
-
+        $qb = DB::table('packaging_types')
+            ->leftJoin('item_available_packaging_types as available_packaging_types','available_packaging_types.packaging_type_id','=','packaging_types.id')
+            ->leftJoin('item_available_packaging_types as base_packaging_type','base_packaging_type.base_packaging_type_id','=','packaging_types.id')
+            ->selectRaw('packaging_types.id,packaging_types.name,packaging_types.priority,COUNT(available_packaging_types.id) as count_available,COUNT(base_packaging_type.id) as count_base')
+            ->groupBy('packaging_types.id');
 
 
         $qb->when($request->filled('q'),function($q) use($request){
@@ -31,7 +35,6 @@ class PackagingTypeController extends Controller
         if(count($sort_array) == 2){
             $qb->orderBy($sort_array[0],$sort_array[1]);
         }
-
 
         if ($limit) {
             $paginator = $qb->paginate($limit);

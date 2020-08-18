@@ -1,14 +1,14 @@
 @extends('daran::layouts.master')
 
 @section('title')
-    @lang('daran::item.edit-family')
+    @lang('daran::item.edit-packaging-types')
     @parent
 @endsection
 
 @section('content')
     <div id="app" class="row">
         <div class="col-12 mb-3">
-            <h3>@lang('daran::item.edit-family')</h3>
+            <h3>@lang('daran::item.edit-packaging-types')</h3>
         </div>
         <div class="col-12 mb-3">
             <form id="pageForm" class="form-template-1" method="post" action="{{ route('admin.packaging-types.update',['packaging_type'=>$packagingType]) }}" enctype="multipart/form-data">
