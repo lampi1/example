@@ -1377,7 +1377,10 @@ __webpack_require__.r(__webpack_exports__);
 }, {
   name: '__actions',
   title: 'Gestione',
-  show_button: true
+  show_duplicate_button: true,
+  show_edit_button: true,
+  show_delete_button: true,
+  show_details_button: false
 }]);
 
 /***/ }),
