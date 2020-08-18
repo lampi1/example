@@ -5024,7 +5024,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       case 'PackagingType':
         this.fields = _PackagingTypeFields_js__WEBPACK_IMPORTED_MODULE_21__["default"];
-        this.id_field = "packaging_type";
+        this.id_field = "PackagingType";
         break;
 
       case 'ItemCategory':
