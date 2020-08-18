@@ -30,33 +30,72 @@
     <script type="text/javascript">
         var url_img_cover_delete = "{{ config('app.url') }}"+ "/admin-api/item-image/";
         var locale = '{{app()->getLocale()}}';
-        var categorie = Array();
+        var categories = {!!$families!!};
+
+        @if($item->category_id)
+            var old_category = {{old('category_id',$item->category_id)}};
+        @else
+            var old_category = {{old('category_id',0)}};
+        @endif
+
+        @if($item->subcategory_id)
+            var old_subcategory = {{old('subcategory_id',$item->subcategory_id)}};
+        @else
+            var old_subcategory = {{old('subcategory_id',0)}};
+        @endif
 
         $(document).ready(function(){
+            changeCategories();
+            $('#category_id').val(old_category).trigger('change');
 
+            changeSubcategories();
+            $('#subcategory_id').val(old_subcategory).trigger('change');
+
+            setTimeout(function(){
+                _isDirty = false;
+            }, 1000);
         });
 
-        //img 1
-        $('.input--image').on('click', '.delete',function(e){
-            e.currentTarget.hidden = true;
-            e.delegateTarget.children[2].children[0].hidden = false;
-            e.delegateTarget.children[1].innerHTML= ""
-        });
 
-        $('#family_id').change(function(){
-            $('#category_id').prop('disabled', false);
-            $("#category_id").val($("#category_id option:first").val());
-
-            var family_id = $('#family_id').val();
-
-            $("#category_id").children('option').remove();
-            $("#category_id").append('<option value="">Seleziona</option>');
-            for(var i=0;i<categorie.length;i++){
-                if(categorie[i].family_id == family_id){
-                    $("#category_id").append('<option value="'+categorie[i].value+'">'+categorie[i].text+'</option>');
+        function changeCategories(){
+            $('#category_id').empty();
+            $('#category_id').append($('<option></option>').attr("value", "").text("Seleziona un valore"));
+            if($('#family_id').val() != ''){
+                for(var i=0;i<categories.length;i++){
+                    if(categories[i].id == $('#family_id').val()){
+                        var c_sel = categories[i];
+                        for(var j=0;j<c_sel.categories.length;j++){
+                            $('#category_id').append($('<option></option>').attr("value", c_sel.categories[j].id).text(c_sel.categories[j].name));
+                        }
+                    }
                 }
             }
+        }
+
+        function changeSubcategories(){
+            $('#subcategory_id').empty();
+            $('#subcategory_id').append($('<option></option>').attr("value", "").text("Seleziona un valore"));
+            if($('#family_id').val() != '' && $('#category_id').val() != ''){
+                for(var i=0;i<categories.length;i++){
+                    if(categories[i].id == $('#family_id').val()){
+                        for(var j=0;j<categories[i].categories.length;j++){
+                            if(categories[i].categories[j].id == $('#category_id').val()){
+                                var c_sel = categories[i].categories[j];
+                                for(var x=0;x<c_sel.subcategories.length;x++){
+                                    $('#subcategory_id').append($('<option></option>').attr("value", c_sel.subcategories[x].id).text(c_sel.subcategories[x].name));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }   
+        $('#family_id').on('change',function(){
+            changeCategories();
         });
 
+        $('#category_id').on('change',function(){
+            changeSubcategories();
+        });
     </script>
 @endsection

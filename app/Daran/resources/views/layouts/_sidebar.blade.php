@@ -51,6 +51,9 @@
                 <a class="sidebar__link {{request()->is('*items*') ? 'active' : '' }}" href="{{route('admin.items.index')}}" title="@lang('daran::item.products')">
                     <span>@lang('daran::item.products')</span>
                 </a>
+                <a class="sidebar__link {{request()->is('*packaging-types*') ? 'active' : '' }}" href="{{route('admin.packaging-types.index')}}" title="@lang('daran::item.packaging-types')">
+                    <span>@lang('daran::item.packaging-types')</span>
+                </a>
                 <a class="sidebar__link {{request()->is('*coupons*') ? 'active' : '' }}" href="{{route('admin.coupons.index')}}" title="@lang('daran::coupon.coupons')">
                     <span>@lang('daran::coupon.coupons')</span>
                 </a>

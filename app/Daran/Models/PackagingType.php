@@ -12,8 +12,13 @@ class PackagingType extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function items()
+    public static function boot()
     {
-        return $this->belongsToMany('App\Daran\Models\Item');
+        parent::boot();
+
+         static::creating(function ($packagingType) {
+             $priority = static::max('priority');
+             $packagingType->priority = $priority ? ++$priority : 0;
+        });
     }
 }

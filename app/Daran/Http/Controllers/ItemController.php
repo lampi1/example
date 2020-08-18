@@ -5,9 +5,11 @@ namespace App\Daran\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Daran\Http\Controllers\Controller;
+use App\Daran\Models\PackagingType;
 use App\Daran\Models\Family;
 use App\Daran\Models\Category;
 use App\Daran\Models\Item;
+use App\Daran\Models\ItemAvailablePackagingType;
 use App\Daran\Models\ItemTranslation;
 use App\Daran\Models\Redirection;
 use App\Daran\Models\OrderDetail;
@@ -50,8 +52,9 @@ class ItemController extends Controller
         }
         $item->fill($fields);
 
+        $packagingTypes = PackagingType::get();
         $families = Family::with('categories','categories.subcategories')->orderBy('priority')->get();
-        return view('daran::items.create', compact('item','langs','families'));
+        return view('daran::items.create', compact('item','langs','families','packagingTypes'));
     }
 
     public function store(ItemRequest $request)
@@ -90,6 +93,24 @@ class ItemController extends Controller
         }
 
         if ($item->save()) {
+
+            $packaging_type_ids = $request->packaging_type_id;
+            $base_packaging_type_ids = $request->base_packaging_type_id;
+            $qtys = $request->qty;
+            $prices = $request->prices;
+    
+            foreach($qtys as $key => $qty){
+                if($qty > 0){
+                    $itemAvailablePackagingType = new ItemAvailablePackagingType();
+                    $itemAvailablePackagingType->item_id = $item->id;
+                    $itemAvailablePackagingType->packaging_type_id = $packaging_type_ids[$key];
+                    $itemAvailablePackagingType->base_packaging_type_id = $base_packaging_type_ids[$key];
+                    $itemAvailablePackagingType->qty = $qty;
+                    $itemAvailablePackagingType->price = $prices[$key];
+                    $itemAvailablePackagingType->save();    
+                }
+            }
+            
             return Redirect::route('admin.items.index')->with('success', trans('daran::message.success.create'));
         } else {
             return Redirect::back()->withInput()->with('error', trans('daran::message.error.create'));
@@ -103,9 +124,10 @@ class ItemController extends Controller
         }
         $langs = config('app.available_translations');
         $families = Family::with('categories','categories.subcategories')->orderBy('priority')->get();
+        $packagingTypes = PackagingType::get();
 
         $item->load('related');
-        return view('daran::items.edit', compact('item', 'langs','families'));
+        return view('daran::items.edit', compact('item', 'langs','families','packagingTypes'));
     }
 
     public function update(ItemRequest $request, Item $item)
@@ -154,6 +176,25 @@ class ItemController extends Controller
                 Redirection::create(['name'=>Str::random(40),'code'=>'301','from_uri'=>$vecchio,'to_uri'=>$nuovo]);
             }
         }*/
+
+        $item->available_packaging_types()->delete();
+
+        $packaging_type_ids = $request->packaging_type_id;
+        $base_packaging_type_ids = $request->base_packaging_type_id;
+        $qtys = $request->qty;
+        $prices = $request->price;
+
+        foreach($qtys as $key => $qty){
+            if($qty > 0 || $qty){
+                $itemAvailablePackagingType = new ItemAvailablePackagingType();
+                $itemAvailablePackagingType->item_id = $item->id;
+                $itemAvailablePackagingType->packaging_type_id = $packaging_type_ids[$key];
+                $itemAvailablePackagingType->base_packaging_type_id = $base_packaging_type_ids[$key];
+                $itemAvailablePackagingType->qty = $qty;
+                $itemAvailablePackagingType->price = $prices[$key];
+                $itemAvailablePackagingType->save();    
+            }
+        }
 
         if ($item->save()) {
             return Redirect::route('admin.items.index')->with('success', trans('daran::message.success.update'));

@@ -5,6 +5,8 @@
  */
 
 return array(
+    'piece'                 => 'Pezzo',
+    'packaging-types'       => 'Tipologia di packaging',
     'families'              => 'Famiglie',
     'family'                => 'Famiglia',
     'categories'            => 'Categorie',
@@ -58,4 +60,5 @@ return array(
     'color'                 => 'Colore',
     'sizes'                 => 'Misure',
     'datasheet'             => 'Scheda Tecnica',
+    'qty'                   => 'Quantità',
 );

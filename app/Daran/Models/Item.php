@@ -87,9 +87,9 @@ class Item extends Model implements Buyable, HasMeta
         return $this->belongsToMany('App\Daran\Models\Item', 'related_items', 'item_id', 'related_id')->where('published',1);
     }
 
-    public function packaging_types()
+    public function available_packaging_types()
     {
-        return $this->belongsToMany('App\Daran\Models\PackagingType');
+        return $this->hasMany('App\Daran\Models\ItemAvailablePackagingType');
     }
 
     // public function colors()

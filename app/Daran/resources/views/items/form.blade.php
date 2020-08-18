@@ -7,6 +7,45 @@
             <label class="control-label">@lang('daran::item.name')</label>
             <input type="text" name="name" maxlength="150" placeholder="@lang('daran::item.name')" required value="{{old('name',$item->name)}}" />
         </div>
+        <div class="col-12 mb-3">
+            <label class="control-label">@lang('daran::item.packaging-types')</label>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                      <th scope="col">Packaging</th>
+                      <th scope="col">Qta</th>
+                      <th scope="col">Formato da</th>
+                      <th scope="col">Prezzo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach($packagingTypes as $packagingType)
+                        <tr>
+                            <td>
+                                <input type="text" disabled="disabled" name="" max="255" value="{{$packagingType->name}}"/>
+                                <input type="hidden" name="packaging_type_id[]" max="255" value="{{$packagingType->id}}"/>
+                            </td>
+                            <td>
+                                <input type="number" name="qty[]" min="0" step="0.01" placeholder="@lang('daran::item.qty')" value="{{old('qty',0)}}" />
+                            </td>
+                            <td>
+                                <select name="base_packaging_type_id[]" class="select2">
+                                    <option value="0">@lang('daran::item.piece')</option>
+                                    @foreach($packagingTypes as $basePackagingType)
+                                        @if($basePackagingType->id != $packagingType->id) 
+                                            <option value="{{$basePackagingType->id}}" {{($basePackagingType->id == old('base_packaging_type_id',$item->base_packaging_type_id) ? "selected='selected'":"")}}>{{$basePackagingType->name}}</option>
+                                        @endif        
+                                    @endforeach
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" name="prices[]" min="0" step="0.01" placeholder="@lang('daran::item.price')" value="{{old('price',0)}}" />
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
         @foreach($langs as $lang)
             <div class="mb-3">
                 <label class="control-label">@lang('daran::common.description') <span class="text-uppercase">{{$lang}}</span></label>
@@ -80,7 +119,7 @@
                         </select>
                     </div>
                     <div class="col-12 mb-3">
-                        <label class="control-label">@lang('daran::item.category')</label>
+                        <label class="control-label">@lang('daran::item.subcategory')</label>
                         <select name="subcategory_id" id="subcategory_id" class="select2">
                             <option value="">@lang('daran::common.select')</option>
                         </select>

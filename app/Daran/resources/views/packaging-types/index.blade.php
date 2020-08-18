@@ -13,9 +13,6 @@
 @include('daran::layouts._messages')
     <div class="row">
         <div class="col-12 mb-2 text-right">
-            <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary">@lang('daran::item.categories')</a>
-            <a href="{{ route('admin.subcategories.index') }}" class="btn btn-secondary">@lang('daran::item.subcategories')</a>
-            <a href="{{ route('admin.items.index') }}" class="btn btn-secondary">@lang('daran::item.items')</a>
             <a href="{{ route('admin.packaging-types.create') }}" class="btn btn-primary">@lang('daran::common.create')</a>
         </div>
         <div class="col-12">
