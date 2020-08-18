@@ -19,27 +19,34 @@
                   </tr>
                 </thead>
                 <tbody>
+                    
                     @foreach($packagingTypes as $packagingType)
+                        @php
+                            $available_packaging_type = collect();
+                            if($item->available_packaging_types->contains('packaging_type_id', $packagingType->id)){
+                                $available_packaging_type = $item->available_packaging_types->where('packaging_type_id', $packagingType->id)->first();
+                            }
+                        @endphp
                         <tr>
                             <td>
                                 <input type="text" disabled="disabled" name="" max="255" value="{{$packagingType->name}}"/>
                                 <input type="hidden" name="packaging_type_id[]" max="255" value="{{$packagingType->id}}"/>
                             </td>
                             <td>
-                                <input type="number" name="qty[]" min="0" step="0.01" placeholder="@lang('daran::item.qty')" value="{{old('qty',0)}}" />
+                                <input type="number" name="qty[]" min="0" step="0.01" placeholder="@lang('daran::item.qty')" @if(!$item->id || $available_packaging_type->count() == 0) value="{{old('qty',0)}}" @else value="{{old('qty',$available_packaging_type->qty)}}" @endif />
                             </td>
                             <td>
                                 <select name="base_packaging_type_id[]" class="select2">
                                     <option value="0">@lang('daran::item.piece')</option>
                                     @foreach($packagingTypes as $basePackagingType)
                                         @if($basePackagingType->id != $packagingType->id) 
-                                            <option value="{{$basePackagingType->id}}" {{($basePackagingType->id == old('base_packaging_type_id',$item->base_packaging_type_id) ? "selected='selected'":"")}}>{{$basePackagingType->name}}</option>
+                                            <option value="{{$basePackagingType->id}}" {{($available_packaging_type->count() > 0 && ($basePackagingType->id == old('base_packaging_type_id',$available_packaging_type->base_packaging_type_id)) ? "selected='selected'":"")}}>{{$basePackagingType->name}}</option>
                                         @endif        
                                     @endforeach
                                 </select>
                             </td>
                             <td>
-                                <input type="number" name="prices[]" min="0" step="0.01" placeholder="@lang('daran::item.price')" value="{{old('price',0)}}" />
+                                <input type="number" name="prices[]" min="0" step="0.01" placeholder="@lang('daran::item.price')" @if(!$item->id || $available_packaging_type->count() == 0) value="{{old('price',0)}}" @else value="{{old('price',$available_packaging_type->price)}}" @endif />
                             </td>
                         </tr>
                     @endforeach

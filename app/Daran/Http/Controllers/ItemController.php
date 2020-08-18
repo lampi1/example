@@ -104,13 +104,13 @@ class ItemController extends Controller
                     $itemAvailablePackagingType = new ItemAvailablePackagingType();
                     $itemAvailablePackagingType->item_id = $item->id;
                     $itemAvailablePackagingType->packaging_type_id = $packaging_type_ids[$key];
-                    $itemAvailablePackagingType->base_packaging_type_id = $base_packaging_type_ids[$key];
+                    $itemAvailablePackagingType->base_packaging_type_id = ($base_packaging_type_ids[$key] != 0) ? $base_packaging_type_ids[$key] : null;
                     $itemAvailablePackagingType->qty = $qty;
                     $itemAvailablePackagingType->price = $prices[$key];
                     $itemAvailablePackagingType->save();    
                 }
             }
-            
+
             return Redirect::route('admin.items.index')->with('success', trans('daran::message.success.create'));
         } else {
             return Redirect::back()->withInput()->with('error', trans('daran::message.error.create'));
@@ -182,14 +182,14 @@ class ItemController extends Controller
         $packaging_type_ids = $request->packaging_type_id;
         $base_packaging_type_ids = $request->base_packaging_type_id;
         $qtys = $request->qty;
-        $prices = $request->price;
+        $prices = $request->prices;
 
         foreach($qtys as $key => $qty){
             if($qty > 0 || $qty){
                 $itemAvailablePackagingType = new ItemAvailablePackagingType();
                 $itemAvailablePackagingType->item_id = $item->id;
                 $itemAvailablePackagingType->packaging_type_id = $packaging_type_ids[$key];
-                $itemAvailablePackagingType->base_packaging_type_id = $base_packaging_type_ids[$key];
+                $itemAvailablePackagingType->base_packaging_type_id = ($base_packaging_type_ids[$key] != 0) ? $base_packaging_type_ids[$key] : null;
                 $itemAvailablePackagingType->qty = $qty;
                 $itemAvailablePackagingType->price = $prices[$key];
                 $itemAvailablePackagingType->save();    
