@@ -200,7 +200,7 @@ export default {
             break;
             case 'PackagingType':
             this.fields = PackagingTypeFields;
-            this.id_field = "PackagingType";
+            this.id_field = "packaging_type";
             break;
             case 'ItemCategory':
             this.fields = ItemCategoryFields;
