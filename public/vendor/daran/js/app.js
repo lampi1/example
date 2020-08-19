@@ -79622,9 +79622,10 @@ var render = function() {
               name: "show",
               rawName: "v-show",
               value:
-                _vm.rowField.show_delete_button && !_vm.rowData.disable_delete,
+                _vm.rowField.show_delete_button &&
+                (!_vm.rowData.can_delete || _vm.rowData.can_delete == 0),
               expression:
-                "rowField.show_delete_button && !rowData.disable_delete"
+                "rowField.show_delete_button && (!rowData.can_delete || rowData.can_delete == 0)"
             }
           ],
           staticClass: "ico",

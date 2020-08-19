@@ -9,7 +9,7 @@
           <button v-show="rowField.show_edit_button" class="ico" @click="itemAction('edit-item', rowData, rowIndex)" data-icon="N" title="Modifica" data-tooltip="tooltip"></button>
           <button v-show="rowField.show_duplicate_button" class="ico" @click="itemAction('clone-item', rowData, rowIndex)" data-icon="x" title="Duplica" data-tooltip="tooltip"></button>
           <button v-show="rowField.show_reorder_button" class="ico" @click="itemAction('reorder-item', rowData, rowIndex)" data-icon="e" title="Ordina" data-tooltip="tooltip"></button>
-          <button v-show="rowField.show_delete_button && !rowData.disable_delete" class="ico" @click="itemAction('delete-item', rowData, rowIndex)" data-icon="J" title="Elimina" data-tooltip="tooltip"></button>
+          <button v-show="rowField.show_delete_button && (!rowData.can_delete || rowData.can_delete == 0)" class="ico" @click="itemAction('delete-item', rowData, rowIndex)" data-icon="J" title="Elimina" data-tooltip="tooltip"></button>
           <button v-show="rowField.show_add" class="ico" @click="itemAction('add-to-related', rowData, rowIndex)" data-icon="F" title="Aggiungi" data-tooltip="tooltip"></button>
           <button v-show="rowField.show_group_button" class="ico" @click="itemAction('item-group', rowData, rowIndex)" data-icon="E" title="Gruppo" data-tooltip="tooltip"></button>
           <button v-show="rowField.show_remove" class="ico" @click="itemAction('remove-from-related', rowData, rowIndex)" data-icon="J" title="Rimuovi" data-tooltip="tooltip"></button>
