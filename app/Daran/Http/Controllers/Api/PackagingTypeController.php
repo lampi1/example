@@ -23,7 +23,7 @@ class PackagingTypeController extends Controller
         $qb = DB::table('packaging_types')
             ->leftJoin('item_available_packaging_types as available_packaging_types','available_packaging_types.packaging_type_id','=','packaging_types.id')
             ->leftJoin('item_available_packaging_types as base_packaging_type','base_packaging_type.base_packaging_type_id','=','packaging_types.id')
-            ->selectRaw('packaging_types.id,packaging_types.name,packaging_types.priority,COUNT(available_packaging_types.id) as count_available,COUNT(base_packaging_type.id) as count_base')
+            ->selectRaw('packaging_types.id,packaging_types.name,packaging_types.priority,COUNT(available_packaging_types.id)+COUNT(base_packaging_type.id) as total_count')
             ->groupBy('packaging_types.id');
 
 
