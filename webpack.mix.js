@@ -1,4 +1,5 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
+const tailwindcss = require("tailwindcss");
 
 /*
  |--------------------------------------------------------------------------
@@ -24,7 +25,6 @@ const mix = require('laravel-mix');
 //     'public/css/app.min.css'
 // );
 
-
 // .sass('resources/sass/select2/core.scss', 'public/css/select2.min.css');
 
 // .styles(['resources/sass/glide.core.css','resources/sass/glide.theme.css'], 'public/css/glide.css');
@@ -36,10 +36,12 @@ const mix = require('laravel-mix');
 //     tunnel:'franzini'
 // });
 
-
-
 // mix DARAN
-mix
-     .js('app/Daran/resources/assets/js/app.js', 'public/vendor/daran/js')
-    .sass('app/Daran/resources/assets/css/app.scss', 'public/vendor/daran/css');
-    // .browserSync({host:'192.168.79.152', proxy: 'franzini.test', port: 4040, online:true, tunnel:true})
+mix.js("app/Daran/resources/assets/js/app.js", "public/vendor/daran/js")
+	.sass("app/Daran/resources/assets/css/app.scss", "public/vendor/daran/css")
+	.sass("resources/sass/app.scss", "public/css/app.css")
+	.options({
+		processCssUrls: false,
+		postCss: [tailwindcss("./tailwind.config.js")],
+	});
+// .browserSync({host:'192.168.79.152', proxy: 'franzini.test', port: 4040, online:true, tunnel:true})

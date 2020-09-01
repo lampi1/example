@@ -12,6 +12,7 @@
     "devDependencies": {
         "@babel/runtime-corejs2": "^7.5.5",
         "@kazupon/vue-i18n-loader": "^0.5.0",
+        "@tailwindcss/custom-forms": "^0.2.1",
         "axios": "^0.19.0",
         "cross-env": "^5.2.0",
         "install": "^0.13.0",
@@ -22,6 +23,7 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
+        "tailwindcss-debug-screens": "^1.1.0",
         "vue": "^2.6.10",
         "vue-template-compiler": "^2.6.11",
         "vuetable-2": "^2.0.0-beta.4"
@@ -42,6 +44,8 @@
         "node-sass": "^4.12.0",
         "numeral": "^2.0.6",
         "sortablejs": "^1.10.0-rc3",
+        "tailwind-percentage-heights-plugin": "^0.1.4",
+        "tailwindcss": "^1.7.6",
         "tiptap": "^1.23.6",
         "tiptap-extensions": "^1.25.1",
         "v-form-builder": "^1.4.1-rc2",

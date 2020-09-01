@@ -1,4 +1,5 @@
 {
     "/vendor/daran/js/app.js": "/vendor/daran/js/app.js",
-    "/vendor/daran/css/app.css": "/vendor/daran/css/app.css"
+    "/vendor/daran/css/app.css": "/vendor/daran/css/app.css",
+    "/css/app.css": "/css/app.css"
 }
