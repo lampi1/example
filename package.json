@@ -46,6 +46,7 @@
         "sortablejs": "^1.10.0-rc3",
         "tailwind-percentage-heights-plugin": "^0.1.4",
         "tailwindcss": "^1.7.6",
+        "tailwindcss-children": "^2.1.0",
         "tiptap": "^1.23.6",
         "tiptap-extensions": "^1.25.1",
         "v-form-builder": "^1.4.1-rc2",
