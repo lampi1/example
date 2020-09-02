@@ -12,7 +12,10 @@
 @section('content')
 @include('daran::layouts._messages')
     <div class="row">
-        <div class="col-12 mb-2 text-right">
+        <div class="col-6 mb-2 text-left">
+            <a href="{{ url()->previous() }}" id="bt-annulla" class="btn btn-info">@lang('daran::common.discard')</a>
+        </div>
+        <div class="col-6 mb-2 text-right">
             <a href="{{ route('admin.items.index') }}" class="btn btn-secondary">@lang('daran::item.items')</a>
         </div>
         <div class="col-12">

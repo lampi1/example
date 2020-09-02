@@ -19,7 +19,7 @@
                 <label class="control-label">@lang('daran::setting.logo')*</label><br>&nbsp;
                 {{-- <span>@lang('daran::setting.logo-dimension')</span> --}}
                 <div class="input--image">
-                    <input id="image1" type="file" name="logo" accept="image/*" hidden>
+                    <input id="image1" type="file" name="logo" accept="image/png, image/jpeg, image/jpg" hidden>
                     <div class="input--image__preview">
                         @if ($branding->logo)
                             <img src="{{config('app.url').'/'.$branding->logo}}">

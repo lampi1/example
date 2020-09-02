@@ -56,7 +56,7 @@ class SettingsController extends Controller
             $extension = $file->getClientOriginalExtension() ?: 'png';
             $img = $this->makeImage($file);
             $nome_originale = 'logo.'.$extension;
-            $branding->logo = $this->saveImage($img,$nome_originale,$nome_originale, null);
+            $branding->logo = $this->saveImage($img,$nome_originale, null);
         }
 
         if($request->file('favicon')){
@@ -65,7 +65,7 @@ class SettingsController extends Controller
             $img = $this->makeImage($file);
 
             $nome_originale = 'favicon.'.$extension;
-            $branding->favicon = $this->saveImage($img,$nome_originale,$nome_originale, null);
+            $branding->favicon = $this->saveImage($img,$nome_originale, null);
 
             $nome_small = 'favicon_ipad.'.$extension;
             $branding->favicon_ipad = $this->saveImage($img,$nome_small,config('daran.images.ipad_icon'));
