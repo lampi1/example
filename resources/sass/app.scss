@@ -23,8 +23,10 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import url("https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css");
-@import url("//db.onlinewebfonts.com/c/2919517cb534a742df4474836ca67452?family=Avenir+Next+Condensed");
+@import url("//db.onlinewebfonts.com/c/116af611cbcd9e4bada60b4e700430c1?family=Avenir+Light");
+@import url("//db.onlinewebfonts.com/c/0983e84d4a1963e075b5ae8ca12e2a4f?family=Avenir+Medium");
+@import url("//db.onlinewebfonts.com/c/275de2221d9f0c4c9257d17f5a1e4006?family=Avenir+Black");
+@import url("//db.onlinewebfonts.com/c/331ec49c0d78e469c42c1d814dd45838?family=Avenir+Book");
 
 @import "reset";
 @import "bootstrap/bootstrap";
@@ -158,44 +160,11 @@ body > * {
     padding-top: 100px;
 }
 
-//fullpage-intro
+.default-button {
+    @apply px-12 py-4 border-blue-900;
+}
 .fullpage-intro {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    // video{
-    //     object-fit: cover;
-    //     width: 100vw;
-    //     height: 100vh;
-    //     top: 0;
-    //     left: 0;
-    //     position: fixed;
-    //     z-index: -1;
-    // }
-    .content {
-        position: absolute;
-        z-index: 2;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        top: 0;
-        .box-offset {
-            max-width: 35vw;
-            margin-left: 50vw;
-            text-align: left;
-            .btn {
-                &:hover {
-                    color: black !important;
-                }
-            }
-        }
-    }
+    @apply w-full h-screen relative bg-center bg-cover bg-no-repeat bg-fixed;
 }
 
 // @import '../views/front/components/mouse/mouse';

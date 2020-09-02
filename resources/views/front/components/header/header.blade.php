@@ -1,5 +1,5 @@
 {{-- <a href="{{route('home')}}" class="logo-box">
-    <img src="{{asset('images/front/logo.svg')}}" alt="Logo" width="140" height="67">
+<img src="{{asset('images/front/logo.svg')}}" alt="Logo" width="140" height="67">
 </a> --}}
 {{-- <div id="js--hamburger" class="hamburger">
     <svg viewBox="0 0 290 290">
@@ -8,13 +8,13 @@
         <line fill-rule="nonzero" fill="none" stroke-width="15" stroke="#ffffff" x1="217.97" y1="178.52" x2="141.78" y2="178.52"/>
     </svg>
 </div> --}}
-<div id="js--menubar" class="menu-bar">
-    <a href="{{route('home')}}" class="logo">
-        <img class="d-block" src="{{asset('images/front/logo.svg')}}" alt="Logo" width="140" height="67">
+<div id="js--menubar" class="h-28  flex items-center justify-between z-10 pl-16 pr-24">
+    <a href="{{route('home')}}" class="">
+        <img class="block" src="{{asset('images/front/logo.svg')}}" alt="Logo" width="140" height="67">
     </a>
-    <div class="links d-none d-lg-flex">
+    <div class="hidden lg:flex w-9/12 justify-between">
         {{-- <a href="{{route('pages.view',['permalink'=>trans('routes.permalinks.contacts')])}}" class="button">
-            @lang('menu.contact_us')
+        @lang('menu.contact_us')
         </a>
         <a data-scroll-to="divisions" href="{{route('home')}}/#divisions" class="button">
             @lang('menu.divisions')
@@ -23,18 +23,19 @@
             @lang('menu.all_works')
         </a> --}}
 
-        <a href="#" class="link">
+        <a href="#" class="">
             Chi siamo
         </a>
-        <a href="#" class="link">
+        <a href="#" class="">
             Cosa facciamo
         </a>
-        <a href="#" class="link">
+        <a href="#" class="">
             Prodotti
         </a>
-        <a href="#" class="link">
+        <a href="#" class="">
             Contatti
         </a>
+        <input type="text" class=" focus:bg-red-500 hover:bg-black">
     </div>
 </div>
 {{-- <div id="js--menu" class="menu">
@@ -43,53 +44,63 @@
         <div id="js--menu-open" class="menu__content__open">
             <div class="links">
                 <p class="title afterLink mt-2 mt-lg-0">@lang('menu.title-1')</p>
-                <a href="{{route('pages.view',['permalink'=>trans('routes.permalinks.promotion-marketing')])}}" class="link @if(LaravelLocalization::getLocalizedURL() == route('pages.view',['permalink'=>trans('routes.permalinks.promotion-marketing')])) active @endif">
-                    @lang('menu.promotion-marketing')
-                </a>
-                <a href="{{route('pages.view',['permalink'=>trans('routes.permalinks.events')])}}" class="link @if(LaravelLocalization::getLocalizedURL() == route('pages.view',['permalink'=>trans('routes.permalinks.events')])) active @endif">
-                    @lang('menu.events')
-                </a>
-                <a href="{{route('pages.view',['permalink'=>trans('routes.permalinks.packaging')])}}" class="link @if(LaravelLocalization::getLocalizedURL() == route('pages.view',['permalink'=>trans('routes.permalinks.packaging')])) active @endif">
-                    @lang('menu.comunication-packaging')
-                </a>
-                <a href="{{route('pages.view',['permalink'=>trans('routes.permalinks.incentive')])}}" class="link @if(LaravelLocalization::getLocalizedURL() == route('pages.view',['permalink'=>trans('routes.permalinks.incentive')])) active @endif">
-                    @lang('menu.incentive')
-                </a>
-                <hr class="afterLink">
-                <a href="{{route('projects.index')}}" class="link @if(LaravelLocalization::getLocalizedURL() == route('projects.index')) active @endif">
-                    @lang('menu.works')
-                </a>
-                <a href="{{route('pages.view',['permalink'=>trans('routes.permalinks.about')])}}" class="link @if(LaravelLocalization::getLocalizedURL() == route('pages.view',['permalink'=>trans('routes.permalinks.about')])) active @endif">
-                    @lang('menu.company')
-                </a>
-                <a href="{{route('news.index')}}" class="link @if(LaravelLocalization::getLocalizedURL() == route('news.index')) active @endif">
-                    @lang('menu.press')
-                </a>
-                <a href="{{route('pages.view',['permalink'=>trans('routes.permalinks.contacts')])}}" class="link @if(LaravelLocalization::getLocalizedURL() == route('pages.view',['permalink'=>trans('routes.permalinks.contacts')])) active @endif">
-                    @lang('menu.contacts')
-                </a>
-            </div>
-            <div class="menu__section-2">
-                <div class="menu__socials">
-                    @foreach ($socials as $social)
-                      <a href="{{$social->social_url}}" target="_blank">
-                          <img src="{{asset('images/front/icons/socials/'.$social->social_name.'-white.svg')}}" width="20px" height="20px">
-                      </a>
-                      @endforeach
-                </div>
-                <div class="menu__contacts">
-                    <p class="text--sm fc--orange fw--bold">@lang('menu.contact_us')</p>
-                    <a class="text--sm" href="mailto:{{$contacts->email}}">{{$contacts->email}}</a>
-                    <a class="text--sm" href="tel:045616061">{{$contacts->phone}}</a>
-                </div>
-            </div>
-        </div>
+                <a href="{{route('pages.view',['permalink'=>trans('routes.permalinks.promotion-marketing')])}}"
+class="link @if(LaravelLocalization::getLocalizedURL() ==
+route('pages.view',['permalink'=>trans('routes.permalinks.promotion-marketing')])) active @endif">
+@lang('menu.promotion-marketing')
+</a>
+<a href="{{route('pages.view',['permalink'=>trans('routes.permalinks.events')])}}"
+    class="link @if(LaravelLocalization::getLocalizedURL() == route('pages.view',['permalink'=>trans('routes.permalinks.events')])) active @endif">
+    @lang('menu.events')
+</a>
+<a href="{{route('pages.view',['permalink'=>trans('routes.permalinks.packaging')])}}"
+    class="link @if(LaravelLocalization::getLocalizedURL() == route('pages.view',['permalink'=>trans('routes.permalinks.packaging')])) active @endif">
+    @lang('menu.comunication-packaging')
+</a>
+<a href="{{route('pages.view',['permalink'=>trans('routes.permalinks.incentive')])}}"
+    class="link @if(LaravelLocalization::getLocalizedURL() == route('pages.view',['permalink'=>trans('routes.permalinks.incentive')])) active @endif">
+    @lang('menu.incentive')
+</a>
+<hr class="afterLink">
+<a href="{{route('projects.index')}}"
+    class="link @if(LaravelLocalization::getLocalizedURL() == route('projects.index')) active @endif">
+    @lang('menu.works')
+</a>
+<a href="{{route('pages.view',['permalink'=>trans('routes.permalinks.about')])}}"
+    class="link @if(LaravelLocalization::getLocalizedURL() == route('pages.view',['permalink'=>trans('routes.permalinks.about')])) active @endif">
+    @lang('menu.company')
+</a>
+<a href="{{route('news.index')}}"
+    class="link @if(LaravelLocalization::getLocalizedURL() == route('news.index')) active @endif">
+    @lang('menu.press')
+</a>
+<a href="{{route('pages.view',['permalink'=>trans('routes.permalinks.contacts')])}}"
+    class="link @if(LaravelLocalization::getLocalizedURL() == route('pages.view',['permalink'=>trans('routes.permalinks.contacts')])) active @endif">
+    @lang('menu.contacts')
+</a>
+</div>
+<div class="menu__section-2">
+    <div class="menu__socials">
+        @foreach ($socials as $social)
+        <a href="{{$social->social_url}}" target="_blank">
+            <img src="{{asset('images/front/icons/socials/'.$social->social_name.'-white.svg')}}" width="20px"
+                height="20px">
+        </a>
+        @endforeach
     </div>
+    <div class="menu__contacts">
+        <p class="text--sm fc--orange fw--bold">@lang('menu.contact_us')</p>
+        <a class="text--sm" href="mailto:{{$contacts->email}}">{{$contacts->email}}</a>
+        <a class="text--sm" href="tel:045616061">{{$contacts->phone}}</a>
+    </div>
+</div>
+</div>
+</div>
 </div> --}}
 
 @section('footerScripts')
-    @parent
-    {{-- <script type="text/javascript">
+@parent
+{{-- <script type="text/javascript">
     let menu = document.getElementById('js--menu');
     // let menuContentRects = document.getElementsByClassName('menu__content__rect');
     let menuOpen = document.getElementById('js--menu-open');
@@ -153,21 +164,21 @@
       });
     </script> --}}
 
-    {{-- <script type="text/javascript">
+{{-- <script type="text/javascript">
         var logoAnim = bodymovin.loadAnimation({
           container: document.getElementById('logo-lottie'), // Required
           path: '{{asset('images/front/logo_anim.json')}}', // Required
-          renderer: 'svg', // Required
-          loop: true, // Optional
-          autoplay: false, // Optional
-          // name: "logo", // Name for future reference. Optional.
-          filterSize: {
-              width: '100%',
-              height: '100%'
-            }
-        });
-        document.addEventListener("DOMContentLoaded", function() {
-            logoAnim.play();
-        });
-    </script> --}}
+renderer: 'svg', // Required
+loop: true, // Optional
+autoplay: false, // Optional
+// name: "logo", // Name for future reference. Optional.
+filterSize: {
+width: '100%',
+height: '100%'
+}
+});
+document.addEventListener("DOMContentLoaded", function() {
+logoAnim.play();
+});
+</script> --}}
 @endsection
