@@ -123,7 +123,7 @@ display: flex;
 // .input-file{
 //     height: 36px !important;
 //     width: 100%;
-//     border: 1px solid $black;
+//     border: 1px solid black;
 //     display: block;
 //     border-radius: 5px;
 //     height: auto;
@@ -143,7 +143,7 @@ display: flex;
 //         background-image: url("/images/icons/upload.svg");
 //     }
 //     &__text{
-//         color: $blue;
+//         color: blue;
 //     }
 // }
 
@@ -164,38 +164,38 @@ display: flex;
     }
     input, textarea{
         min-height: 36px;
-        border: 2px solid $blue;
+        border: 2px solid blue;
         background-color: transparent;
         display: flex;
         flex-grow: 1;
         border-radius: 0px;
         height: auto;
-        color: $black;
+        color: black;
         &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-          color: $blue;
+          color: blue;
           // letter-spacing: 2px;
           opacity: 1; /* Firefox */
         }
         &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-            color: $blue;
+            color: blue;
             // letter-spacing: 2px;
             opacity: 1;
         }
         &::-ms-input-placeholder { /* Microsoft Edge */
-            color: $blue;
+            color: blue;
             // letter-spacing: 2px;
             opacity: 1;
         }
         &.error{
-            border-color: $red;
+            border-color: red;
             &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-              color: $red;
+              color: red;
             }
             &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-                color: $red;
+                color: red;
             }
             &::-ms-input-placeholder { /* Microsoft Edge */
-                color: $red;
+                color: red;
             }
         }
     }
@@ -220,29 +220,29 @@ input{
 
     /* checkbox color */
     .input-checkbox__icon span:first-child {
-      border: 2px solid $white;
+      border: 2px solid white;
       background-color: transparent;
       // border-radius: 100%;
       &.error{
-          border-color: $red;
+          border-color: red;
       }
     }
     .input-checkbox__icon span:first-child svg {
-      stroke: $blue;
+      stroke: blue;
     }
     .input-checkbox__icon span:first-child:before {
-      background: $white;
+      background: white;
     }
     .input-checkbox__icon:hover span:first-child {
-      border-color: $white;
+      border-color: white;
     }
     .input-checkbox__hidden:checked + .input-checkbox__icon span:first-child {
-      background: $white;
-      border-color: $white;
+      background: white;
+      border-color: white;
     }
     .input-checkbox__text{
         &.error{
-            color: $red;
+            color: red;
         }
     }
 }

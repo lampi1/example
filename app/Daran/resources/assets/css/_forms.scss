@@ -322,20 +322,20 @@ label.control-label{
         input, textarea{
             border-color: transparent;
             background-color: #ffffff;
-            color: $blue;
+            color: blue;
             text-align: center;
             border: 2px solid transparent;
             &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-              color: $blue;
+              color: blue;
               opacity: 1; /* Firefox */
             }
 
             &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-              color: $blue;
+              color: blue;
             }
 
             &::-ms-input-placeholder { /* Microsoft Edge */
-              color: $blue;
+              color: blue;
             }
             &.error{
                 color: $red;
@@ -360,7 +360,7 @@ label.control-label{
           border: 1px solid #FFFFFF;
         }
         .input-checkbox__icon span:first-child svg {
-          stroke: $blue;
+          stroke: blue;
         }
         .input-checkbox__icon span:first-child:before {
           background: #FFFFFF;
@@ -496,7 +496,7 @@ label.control-label{
              width: 100%;
              height: auto;
              display: block;
-             border: 1px solid $blue;
+             border: 1px solid blue;
              border-radius: 5px;
              padding: .5rem;
              margin-bottom: .5rem;

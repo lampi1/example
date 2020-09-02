@@ -30,15 +30,12 @@
     });
 
 
-
 //select2
 $('.select2').select2({minimumResultsForSearch: -1});
 
 
 
 let controller = new ScrollMagic.Controller();
-
-
 //menu
 let menu = document.getElementById('js--menubar');
 // let hamburger = document.getElementById('js--hamburger');

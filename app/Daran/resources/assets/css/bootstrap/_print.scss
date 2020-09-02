@@ -14,7 +14,7 @@
     *::before,
     *::after {
       // Bootstrap specific; comment out `color` and `background`
-      //color: $black !important; // Black prints faster
+      //color: black !important; // Black prints faster
       text-shadow: none !important;
       //background: transparent !important;
       box-shadow: none !important;
@@ -101,7 +101,7 @@
       display: none;
     }
     .badge {
-      border: $border-width solid $black;
+      border: $border-width solid black;
     }
 
     .table {

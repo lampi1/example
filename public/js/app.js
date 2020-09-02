@@ -298,8 +298,8 @@ injectAnimations(); //news box preview
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/francesco/Documents/sviluppo/global-job-service/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/francesco/Documents/sviluppo/global-job-service/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/francesco/Documents/sviluppo/example/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/francesco/Documents/sviluppo/example/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
