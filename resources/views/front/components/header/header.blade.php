@@ -8,7 +8,7 @@
         <line fill-rule="nonzero" fill="none" stroke-width="15" stroke="#ffffff" x1="217.97" y1="178.52" x2="141.78" y2="178.52"/>
     </svg>
 </div> --}}
-<div id="js--menubar" class="h-28  flex items-center justify-between z-10 pl-16 pr-24">
+<div id="js--menubar" class="h-28 absolute z-10 bg-white w-full flex items-center justify-between pl-16 pr-24">
     <a href="{{route('home')}}" class="">
         <img class="block" src="{{asset('images/front/logo.svg')}}" alt="Logo" width="140" height="67">
     </a>
@@ -35,7 +35,9 @@
         <a href="#" class="">
             Contatti
         </a>
-        <input type="text" class=" focus:bg-red-500 hover:bg-black">
+        <div class="flex justify-between w-1/12"><img width="20" height="20"
+                src="{{ asset('images/front/icons/menu-user.svg') }}" alt="">
+            <img width="20" height="20" src="{{ asset('images/front/icons/menu-search.svg') }}" alt=""></div>
     </div>
 </div>
 {{-- <div id="js--menu" class="menu">

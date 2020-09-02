@@ -49,7 +49,9 @@ button:focus {
 button::-moz-focus-inner {
     border: 0;
 }
-
+footer > a {
+    color: white;
+}
 //loop colori
 @each $color, $value in $colors {
     .fc--#{$color} {

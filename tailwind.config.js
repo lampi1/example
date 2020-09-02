@@ -101,8 +101,8 @@ module.exports = {
 				"4": "4px",
 			},
 			colors: {
-				dark: "#1D2768",
-				light: "#406CB0",
+				primary: "#1D2768",
+				secondary: "#406CB0",
 			},
 		},
 	},
