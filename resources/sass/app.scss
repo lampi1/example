@@ -1,274 +1,39 @@
-// @font-face {
-//   font-family: 'Avenir';
-//   font-weight: normal;
-//   src: url('/fonts/avenir-regular.ttf')  format('ttf') /* Safari, Android, iOS */
-// }
-// @font-face {
-//   font-family: 'Avenir';
-//   font-weight: medium;
-//   src: url('/fonts/NeueMontreal-Medium.otf')  format('truetype') /* Safari, Android, iOS */
-// }
-// @font-face {
-//   font-family: 'Avenir';
-//   font-weight: lighter;
-//   src: url('/fonts/avenir-light.ttf')  format('ttf') /* Safari, Android, iOS */
-// }
-// @font-face {
-//   font-family: 'Avenir';
-//   font-weight: bold;
-//   src: url('/fonts/avenir-bold.ttf')  format('ttf') /* Safari, Android, iOS */
-// }
+//FONTS
 
-// tailwind e font
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+// TODO: DA GOOGLE FONTS
 @import url("//db.onlinewebfonts.com/c/116af611cbcd9e4bada60b4e700430c1?family=Avenir+Light");
 @import url("//db.onlinewebfonts.com/c/0983e84d4a1963e075b5ae8ca12e2a4f?family=Avenir+Medium");
 @import url("//db.onlinewebfonts.com/c/275de2221d9f0c4c9257d17f5a1e4006?family=Avenir+Black");
 @import url("//db.onlinewebfonts.com/c/331ec49c0d78e469c42c1d814dd45838?family=Avenir+Book");
 
-@import "reset";
-@import "bootstrap/bootstrap";
+//TAILWIND
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+//GLIDE SLIDER
 @import "glide.core";
 @import "glide.theme";
-@import "forms";
-@import "select2/core";
-@import "../views/front/components/header/header";
+
+//SELECT2
+// @import "select2/core";
+
+//COMPONENTS
 // @import '../views/front/components/preview-project/preview-project';
-@import "../views/front/components/footer/footer";
 // @import '../views/front/components/mouse/mouse';
 
-button:focus {
-    outline: 0 !important;
-}
-:focus {
-    outline: none !important;
-}
-
-button::-moz-focus-inner {
-    border: 0;
-}
-footer > a {
-    color: white;
-}
-//loop colori
-@each $color, $value in $colors {
-    .fc--#{$color} {
-        color: #{$value} !important;
-    }
-}
-
-@each $color, $value in $colors {
-    .bg--#{$color} {
-        background-color: #{$value};
-    }
-}
-
-//TEXT OUTLINES
-@each $color, $value in $colors {
-    .text-outline--#{$color} {
-        text-shadow: -1px -1px 0 #{$value}, 1px -1px 0 #{$value}, -1px 1px 0 #{$value}, 1px 1px 0 #{$value};
-    }
-}
-
-body > * {
-    // font-size: 31px;
-    // font-family: 'NeueMontreal', sans-serif;
-    font-family: "Raleway", sans-serif !important;
-    // font-family: 'Source Sans Pro', sans-serif;
-    font-weight: normal;
-    color: $black;
-}
-
-//letter spacing
-.letter-spacing--1 {
-    letter-spacing: 1px;
-}
-.letter-spacing--2 {
-    letter-spacing: 2px;
-}
-.letter-spacing--3 {
-    letter-spacing: 3px;
-}
-
-//font weight
-.fw--light {
-    font-weight: 200;
-}
-.fw--regular {
-    font-weight: 400;
-}
-.fw--medium {
-    font-weight: 500;
-}
-.fw--semibold {
-    font-weight: 600;
-}
-.fw--bold {
-    font-weight: 700;
-}
-
-//font sizes
-.text--xxxxxl {
-    font-size: 275px;
-    line-height: 275px;
-    letter-spacing: 0.18vw;
-}
-.text--xxxxl {
-    font-size: 7vw;
-    line-height: 8vw;
-    letter-spacing: 0.16vw;
-}
-.text--xxxl {
-    font-size: 4.6vw;
-    line-height: 4.9vw;
-    letter-spacing: 0.14vw;
-}
-.text--xxl {
-    font-size: 3vw;
-    line-height: 3.5vw;
-    letter-spacing: 0.12vw;
-}
-.text--xl {
-    font-size: 2.3vw;
-    line-height: 2.5vw;
-    letter-spacing: 0.1vw;
-}
-.text--lg {
-    font-size: 1.9vw;
-    line-height: 2.3vw;
-    letter-spacing: 0.08vw;
-}
-.text--md {
-    font-size: 1.2vw;
-    line-height: 1.7vw;
-    letter-spacing: 0.05vw;
-}
-.text--sm {
-    font-size: 0.9vw;
-    line-height: 1.2vw;
-    letter-spacing: 0.03vw;
-}
-.text--xs {
-    font-size: 12px;
-    line-height: 12px;
-}
-
-// --------------------------------------------------------------------------
-
-//x menu
+/*
+ |--------------------------------------------------------------------------
+ | CUSTOM CSS
+ |--------------------------------------------------------------------------
+ */
 .menu-offset {
     padding-top: 100px;
 }
 
-.default-button {
-    @apply px-12 py-4 border-blue-900;
+.btn {
+    @apply px-12 py-4;
 }
 .fullpage-intro {
     @apply w-full h-screen relative bg-center bg-cover bg-no-repeat bg-fixed;
-}
-
-// @import '../views/front/components/mouse/mouse';
-
-//slider product homepage
-.slider-product {
-    width: calc(100% - 200px);
-    left: 100px;
-    .glide__arrow--left {
-        left: -100px;
-        svg {
-            transform: rotate(180deg);
-        }
-    }
-    .glide__arrow--right {
-        right: -100px;
-    }
-    .glide__arrow {
-        background-color: $blue;
-        width: 50px;
-        height: 40%;
-        svg {
-            fill: white;
-            width: 20px;
-            height: 20px;
-        }
-    }
-    //product preview slider
-    .slider-product-preview {
-        .image {
-            width: 100%;
-            padding-bottom: 100%;
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-    }
-}
-
-.slider-half-content {
-    .glide__slides {
-        transform: none !important;
-        width: auto !important;
-        display: block;
-    }
-    .glide__slide {
-        position: absolute;
-        left: 0;
-        top: 0;
-        opacity: 0;
-        transition: opacity 1s;
-    }
-    .glide__slide:first-child {
-        position: relative;
-    }
-    .glide__slide--active {
-        z-index: 1;
-        opacity: 1;
-    }
-}
-.bg-full {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-}
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-}
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-}
-
-@include media-breakpoint-down(lg) {
-    .text--xxxxl {
-        font-size: 16vw;
-        line-height: 17vw;
-    }
-    .text--xxxl {
-        font-size: 14.5vw;
-        line-height: 15.5vw;
-    }
-    .text--xxl {
-        font-size: 10vw;
-        line-height: 11vw;
-    }
-    .text--xl {
-        font-size: 8.5vw;
-        line-height: 9.5vw;
-    }
-    .text--lg {
-        font-size: 7vw;
-        line-height: 8vw;
-    }
-    .text--md {
-        font-size: 5.5vw;
-        line-height: 6.5vw;
-        letter-spacing: inherit;
-    }
-    .text--sm {
-        font-size: 3.7vw;
-        line-height: 4.7vw;
-        letter-spacing: inherit;
-    }
 }

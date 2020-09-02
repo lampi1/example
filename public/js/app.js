@@ -166,7 +166,7 @@ var scene = new ScrollMagic.Scene({
 }).on('start', function () {
   // console.log('play');
   menu.timeline.play();
-}).on("leave", function () {
+}).on('leave', function () {
   // console.log('reverse');
   menu.timeline.reverse();
 }) // .addIndicators({
@@ -192,7 +192,7 @@ window.startSMAnimation = function () {
     var scene = new ScrollMagic.Scene({
       triggerElement: e,
       // offset: -120
-      triggerHook: .75
+      triggerHook: 0.75
     }).on('start', function () {
       if (played == false) {
         // console.log('animation started');
@@ -211,14 +211,14 @@ window.startSMAnimation = function () {
   });
 };
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   startSMAnimation();
 }); //animation x hover menu box
 
 function injectAnimations() {
   $('[data-anim]').each(function (i, e) {
     var delay = 0;
-    var duration = .5; // TODO: rimuovere data anim e duration x questo progetto, gestirli direttamente in tl
+    var duration = 0.5; // TODO: rimuovere data anim e duration x questo progetto, gestirli direttamente in tl
 
     if ($(e).data('anim-delay')) {
       delay = $(e).data('anim-delay');
@@ -298,8 +298,8 @@ injectAnimations(); //news box preview
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/francesco/Documents/sviluppo/global-job-service/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/francesco/Documents/sviluppo/global-job-service/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Lampione/progetti/global-job-service/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Lampione/progetti/global-job-service/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

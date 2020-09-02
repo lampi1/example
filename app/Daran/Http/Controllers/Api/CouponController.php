@@ -21,9 +21,9 @@ class CouponController extends Controller
         $qb = DB::table('coupons')->select('coupons.id','coupons.name','coupons.code','category_translations.name as category','users.surname as user','family_translations.name as family')
         ->leftJoin('category_translations','category_translations.category_id','=','coupons.category_id')
         ->leftJoin('family_translations','family_translations.family_id','=','coupons.family_id')
-        ->leftJoin('users','users.id','=','coupons.user_id');
-        // ->where('category_translations.locale',session('working_lang', Lang::getLocale()))
-        // ->where('family_translations.locale',session('working_lang', Lang::getLocale()));
+        ->leftJoin('users','users.id','=','coupons.user_id')
+        ->where('category_translations.locale',session('working_lang', Lang::getLocale()))
+        ->where('family_translations.locale',session('working_lang', Lang::getLocale()));
 
         $qb->when($request->filled('q'),function($q) use($request){
             return $q->where('coupons.name','like','%'.$request->get('q').'%')->orWhere('coupons.code','like','%'.$request->get('q').'%');
@@ -34,6 +34,7 @@ class CouponController extends Controller
         if(count($sort_array) == 2){
             $qb->orderBy($sort_array[0],$sort_array[1]);
         }
+        
 
         if ($limit) {
             $paginator = $qb->paginate($limit);

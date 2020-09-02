@@ -38,7 +38,7 @@
 
     <!-- Styles -->
     @section('headerStyles')
-    <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.min.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @show
 
@@ -115,7 +115,7 @@
 
 </head>
 
-<body class="debug-screens">
+<body class="debug-screens font-medium">
     @if (MetaTag::get('gtag_manager'))
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ MetaTag::get('gtag_manager') }}" height="0"

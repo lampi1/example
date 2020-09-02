@@ -8,9 +8,9 @@
              </div>
         </div>
         <div class="col-12 mb-4">
-            {{-- <a class="sidebar__link {{request()->is('*pages*') ? 'active' : '' }}" href="{{route('admin.pages.index')}}" title="@lang('daran::page.pages')">
+            <a class="sidebar__link {{request()->is('*pages*') ? 'active' : '' }}" href="{{route('admin.pages.index')}}" title="@lang('daran::page.pages')">
                 <span>@lang('daran::page.pages')</span>
-            </a> --}}
+            </a>
             {{-- <a class="sidebar__link {{request()->is('*posts*') ? 'active' : '' }}" href="{{route('admin.posts.index')}}" title="@lang('daran::post.posts')">
                 <span>@lang('daran::post.posts')</span>
             </a> --}}

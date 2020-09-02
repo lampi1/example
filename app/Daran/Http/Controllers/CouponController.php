@@ -7,7 +7,7 @@ use App\Daran\Models\Coupon;
 use App\Daran\Models\Category;
 use App\Daran\Models\Item;
 use App\Daran\Models\Family;
-use App\Models\User;
+use App\User;
 use App\Daran\Http\Requests\CouponRequest;
 use App\Daran\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;

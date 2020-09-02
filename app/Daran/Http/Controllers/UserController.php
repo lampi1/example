@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Daran\Http\Controllers\Controller;
-use App\Models\User;
+use App\User;
 use App\Daran\Models\TypeTranslation;
 use App\Daran\Models\Redirection;
 use App\Daran\Models\Pricelist;

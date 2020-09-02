@@ -203,7 +203,7 @@ th.sorting{
 }
 
 // .vuetable th.sortable{
-//     color: $blue !important;
+//     color: blue !important;
 // }
 
 
@@ -216,7 +216,7 @@ th.sorting{
         height: 0;
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
-        border-top: 5px solid $blue;
+        border-top: 5px solid blue;
         top: calc(50% + 2px);
         left: 5px;
         position: absolute;
@@ -226,7 +226,7 @@ th.sorting{
         height: 0;
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
-        border-bottom: 5px solid $blue;
+        border-bottom: 5px solid blue;
         top: calc(50% - 5.5px);
         left: 5px;
         position: absolute;
@@ -237,7 +237,7 @@ th.sorting{
                 height: 0;
                 border-left: 5px solid transparent;
                 border-right: 5px solid transparent;
-                border-bottom: 5px solid $blue;
+                border-bottom: 5px solid blue;
                 top: calc(50% - 2.5px);
                 left: 5px;
                 position: absolute;
@@ -253,7 +253,7 @@ th.sorting{
                 height: 0;
                 border-left: 5px solid transparent;
                 border-right: 5px solid transparent;
-                border-top: 5px solid $blue;
+                border-top: 5px solid blue;
                 top: calc(50% - 2.5px);
                 left: 5px;
                 position: absolute;
@@ -373,11 +373,11 @@ padding-top: 60px;
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 100%;
-            border: 1px solid $blue;
+            border: 1px solid blue;
         }
         &-name{
             font-weight: 600;
-            color: $blue;
+            color: blue;
             font-size: 100% !important;
             padding-left: 1rem;
         }
@@ -389,7 +389,7 @@ div:not(.editor__content) > * > h3{
     font-size: 150% !important;
     line-height: 170%;
     font-weight: 500;
-    color: $blue;
+    color: blue;
     text-transform: uppercase;
 }
 
@@ -397,14 +397,14 @@ div:not(.editor__content)  > * > h4{
     font-size: 120% !important;
     line-height: 150%;
     font-weight: 400;
-    color: $blue;
+    color: blue;
 }
 
 div:not(.editor__content)  > * > h5{
     font-size: 105% !important;
     line-height: 130%;
     font-weight: 400;
-    color: $blue;
+    color: blue;
 }
 
 
@@ -430,20 +430,20 @@ div:not(.editor__content)  > * > h5{
 }
 
 .vs__clear, .vs__open-indicator {
-    fill: $blue !important;
+    fill: blue !important;
 }
 
 //tiptap
 .editor{
     .menubar{
         padding: 1rem;
-        border: 1px solid $blue;
+        border: 1px solid blue;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
         border-bottom: 0px;
         // &__button{
-        //     border: 1px solid $blue;
-        //     color: $blue;
+        //     border: 1px solid blue;
+        //     color: blue;
         //     background-color: transparent;
         //     -webkit-appearance:none;
         //     border-radius: 5px;
@@ -477,7 +477,7 @@ div:not(.editor__content)  > * > h5{
 
     .ProseMirror{
         padding: 1rem;
-        border: 1px solid $blue;
+        border: 1px solid blue;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
         height: 400px;
@@ -494,11 +494,11 @@ div:not(.editor__content)  > * > h5{
 //tagstring
 .vue-tags-input{
     .ti-input{
-        border: 1px solid $blue !important;
+        border: 1px solid blue !important;
         border-radius: 5px !important;
     }
     .ti-tag{
-        background-color: $blue !important;
+        background-color: blue !important;
         border-radius: 5px !important;
     }
     .ti-new-tag-input{
@@ -511,10 +511,10 @@ div:not(.editor__content)  > * > h5{
         border-bottom-left-radius: 5px;
         margin-top: -3px;
         .ti-item{
-            color: $blue;
+            color: blue;
             padding: .2rem;
             &.ti-selected-item{
-                background-color: $blue;
+                background-color: blue;
                 color: #fff !important;
             }
         }
@@ -642,7 +642,7 @@ a.card-header {
     cursor: grab;
 }
 .sortable-chosen.ghost{
-    background-color: $blue !important;
+    background-color: blue !important;
     color: $white !important;
     .draggable{
         cursor: grabbing;
@@ -772,5 +772,5 @@ nestable {
 }
 .content-wrapper table thead{
     background-color: rgba(121,173,245,.3);
-    color: $blue;
+    color: blue;
 }

@@ -9,7 +9,7 @@ use App\Daran\Http\Controllers\Controller;
 use App\Daran\Models\Family;
 use App\Daran\Models\Category;
 use App\Daran\Models\Pricelist;
-use App\Models\User;
+use App\User;
 use App\Daran\Http\Requests\CategoryRequest;
 use Illuminate\Support\Facades\Redirect;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
