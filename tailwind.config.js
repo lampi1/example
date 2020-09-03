@@ -84,7 +84,8 @@ module.exports = {
 	// Si possono anche concatenare le pseudoclassi con le varianti responsive ad esempio lg:hover:bg-black attiverà il bg-black solo quando entrambe le varianti saranno soddisfatte.
 
 	variants: {
-		display: [
+		backgroundColor: [
+			"hover",
 			"children",
 			"default",
 			"children-first",
@@ -94,7 +95,6 @@ module.exports = {
 			"children-not-first",
 			"children-not-last",
 			"children-hover",
-			"hover",
 			"children-focus",
 			"focus",
 			"children-focus-within",

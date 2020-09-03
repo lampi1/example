@@ -1,9 +1,7 @@
 @extends('front.layouts.app')
-
 @section('content')
-
 <section class="fullpage-intro" style="background-image:url({{asset('images/front/pages/homepage/bg.png')}})">
-    <div class="absolute z-10 h-full flex items-center justify-center top-0 text-white">
+    <div class=" absolute z-10 h-full flex items-center justify-center top-0 text-white">
         <div class="w-4/12 ml-50vw text-left">
             <p class="text-6xl font-bold mb-2 leading-tight">
                 Lorem ipsum dolor sit amet
@@ -18,31 +16,32 @@
         </div>
     </div>
 </section>
-
 <section id="js--show-menu" class="bg-primary flex justify-between px-64 font-semibold py-20" data-anim="">
-    @for ($i=0; $i < 4; $i++) <div class=" hover:children:hidden flex flex-col items-center text-white">
+    @for ($i=0; $i < 4; $i++) <div class="  flex flex-col items-center text-white">
         <img class="h-16 w-16" src="{{asset('images/front/pages/homepage/ico-'.$i.'.svg')}}">
         <p class="mt-4">MIGLIOR PREZZO</p>
         <p class="">garantito</p>
         </div>
         @endfor
 </section>
-
 {{-- data-anim fadeInUp --}}
 <h3 class="text-center mt-20 font-bold text-6xl text-primary">I nostri Best Sellers</h3>
-
-<section class="">
-    <div class="glide">
+<section class="px-40 mt-24 text-primary">
+    <div class="js-slider-product">
         <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
+            <ul class="glide__slides ">
                 @for ($i=0; $i < 10; $i++) <li class="glide__slide">
-                    <p class="">EC-FEVERSCAN {{$i}}</p>
-                    <p class="">
+                    <img class=" object-fit-contain" src="{{ asset('images/front/pages/homepage/mascherina.png') }}"
+                        alt="">
+                    <p class=" font-extrabold mt-6 text-2xl">EC-FEVERSCAN {{$i}}</p>
+                    <p class="mt-6">
                         Eco-Feverscan è una colonnina intelligente, dotata di misuratore di
                         temperatura corporea a distanza. Dal design moderno, la colonnina è stata
                         realizzata in acciaio inox.
                     </p>
-                    <a class="" href="#">Scopri di più</a>
+                    <div class="flex flex-row-reverse">
+                        <button class="btn border border-primary mt-6" href="#">ACQUISTA</button>
+                    </div>
                     </li>
                     @endfor
             </ul>
@@ -53,8 +52,25 @@
         </div>
     </div>
 </section>
+<section class="flex bg-primary mt-20">
+    <div class="w-7/12 flex flex-col justify-center text-white p-32">
+        <h2 class=" font-black text-5xl">ECO-FEVERSCAN</h2>
+        <p class="mt-10">Eco-Feverscan è una colonnina intelligente, dotata di misuratore di
+            temperatura corporea a distanza. Dal design moderno, la colonnina è stata
+            realizzata in acciaio inox.</p>
+        <button class="btn border border-white font-bold flex items-center mt-10" href="#">
+            <p> SCOPRI DI PIù </p>
+            <img class="ml-4" src="{{ asset('images/front/icons/header-button-arrow.svg') }}" alt="">
+        </button>
+        <button class="btn border border-white font-bold flex items-center mt-10" href="#">
+            <p> SCOPRI DI PIù </p>
+            <img class="ml-4" src="{{ asset('images/front/icons/header-button-arrow.svg') }}" alt="">
+        </button>
+    </div>
+    <div></div>
 
-<section class="w-100">
+</section>
+{{-- <section class="w-100">
     <div class="row no-gutters">
         <div class="col-5">
             <div class="bg-full" style="background-image:url('https://via.placeholder.com/600x400')">
@@ -73,8 +89,6 @@
         </div>
     </div>
 </section>
-
-
 <section class="pt-5 mt-5 mb-5" data-anim="fadeInUp">
     <div class="row">
         <div class="col-12 text-center">
@@ -86,7 +100,7 @@
             </p>
             <a class="btn btn-outline-primary d-inline-block" href="#">Scopri di più</a>
         </div>
-    </div>
+    </div> --}}
 </section>
 
 @endsection
@@ -95,38 +109,51 @@
 @parent
 
 <script type="text/javascript">
-    var productSlider = new Glide('#js--product-slider', {
-            type: 'carousel',
-            startAt: 0,
-            perView: 3,
-            gap: 200,
-            autoplay: 5000,
-            focusAt: 'center',
-            mode: 'vertical',
-            breakpoints: {
-                768: {
-                    startAt: 0,
-                    gap: 0,
-                    perView: 1
-                }
-            }
-            }).mount();
+    // var productSlider = new Glide('#js--product-slider', {
+    //         type: 'carousel',
+    //         startAt: 0,
+    //         perView: 3,
+    //         gap: 200,
+    //         autoplay: 5000,
+    //         focusAt: 'center',
+    //         mode: 'vertical',
+    //         breakpoints: {
+    //             768: {
+    //                 startAt: 0,
+    //                 gap: 0,
+    //                 perView: 1
+    //             }
+    //         }
+    //     }).mount();
 
-            var halfContentSlider = new Glide('#js--half-content-slider', {
-                type: 'carousel',
-                startAt: 0,
-                perView: 1,
-                gap: 0,
-                autoplay: 5000,
-                focusAt: 'center',
-                mode: 'vertical',
-                breakpoints: {
-                    768: {
-                        startAt: 0,
-                        gap: 0,
-                        perView: 1
-                    }
-                }
-                }).mount();
+let sliderProduct = document.querySelectorAll(".js-slider-product");
+sliderProduct.forEach(function(el, i) {
+	new Glide(el, {
+		type: "carousel",
+		startAt: 0,
+		perView: 3,
+		gap: 200,
+	}).mount();
+	// Breakpoints.match({
+	// 	600: { perView: 1 },
+	// });
+});
+
+    // var halfContentSlider = new Glide('#js--half-content-slider', {
+    //         type: 'carousel',
+    //         startAt: 0,
+    //         perView: 1,
+    //         gap: 0,
+    //         autoplay: 5000,
+    //         focusAt: 'center',
+    //         mode: 'vertical',
+    //         breakpoints: {
+    //             768: {
+    //                 startAt: 0,
+    //                 gap: 0,
+    //                 perView: 1
+    //             }
+    //         }
+    //     }).mount();
 </script>
 @endsection
